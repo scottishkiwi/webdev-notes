@@ -1,0 +1,37 @@
+Links:
+
+- Allow us to link to other HTML pages on the web. This is why it's called the web. 
+
+Anchor links: 
+
+- <a> element wraps its child elements in a link
+- Needs an href attribute to tell the link where to go when clicked
+    - Adding the href attribute tells the browser to style text with a blue color and underline it to signify it is a link
+- You can link to anything: other pages on your website, or videos, pdfs, images etc.
+
+Absolute and Relative links: 
+
+Generally we use two kins of link on a website: 
+1. Links to pages on other websites on the internet
+2. Links to pages located on our own website
+
+Absolute links: 
+
+- Links to other websites on the internet use absolute links. 
+- protocol://domain/path
+- Always contains the protocol and domain of the destination
+
+Relative links: 
+
+- Links to other pages on our website are relative links
+- Do not include the domain name, since it is another page on the same site
+- Only includes the file path to the other page, RELATIVE to the page we are creating the link on
+- Best practice is to prepend ./ before the link to specify to the code that it should start looking for the file/directory relative to the current directory
+    - Can then also use ../ and ../../ to specify specific relative paths
+
+
+Images: 
+
+- We use the <img> element
+- It does not have a closing tag because we don't wrap content with it, we embed an absolute or relative path to the image we want to display in the src attribute of the img tag
+- We also use the alt attribute to describe an image. This is used for screen readers to describe what the image is

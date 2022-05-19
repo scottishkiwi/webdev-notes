@@ -1,0 +1,49 @@
+External CSS:
+
+- Create separate CSS file and link it using a <link> element inside the <head> tag in the HTML
+
+<head>
+    ....
+    <link rel="stylesheet" href="styles.css">
+    ....
+</head>
+
+- href can be absolute or relative
+- Keeps HTML and CSS separate, keeping HTML looking cleaner
+- Only need to edit the CSS in one place
+
+
+Internal CSS:
+
+- Also known as embedded CSS
+- Place all rules inside of <style> tags, which are in the <head> tag in the HTML
+
+<head>
+    <style>
+        div {
+            color: white;
+            background-color: black;
+        }
+
+        p {
+            color: red;
+        }
+    </style>
+</head>
+
+- Useful for adding unique styles to a single page of a website
+- If lots of styles, it can make the HTML file big for no reason
+
+
+Inline CSS:
+
+- Add styles directly to an HTML element
+- Rarely recommended
+
+<body>
+    <div style="color: white; background-color: black;">...</div>
+</body>
+
+- Note: no selectors are used here, as we are applying styles to this specific element
+- This will override all previous CSS which can cause unexpected results
+

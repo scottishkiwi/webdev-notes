@@ -1,0 +1,53 @@
+What is Git? 
+
+- Version control system. 
+- Saves differences in files and folders AND keeps a historical record of each save. 
+- Allows you to revert selected files back to a previous state, revert the entire project back to a previous state, compare changes over time, see who last modified something etc.  
+
+Local or remote, Git vs GitHub?
+
+- Git works on your local machine, but GitHub is a remote storage facility on the web for your coding projects. 
+
+How did it start? 
+
+- Developers created Local VCS, a simple database that kept track of all changes to files.
+
+Developers found they needed to collaborate with other developers:
+
+- Centralized VCS was developed. These systems have a single server that contains all the versioned files, and a number of clients can check out files from the central repository. 
+- Downside? Single point of failure. If central server goes down, nobody can collaborate or save versioned changes to anything they are working on. 
+
+Solution? Distributed VCS (such as Git)
+
+- Clients don't just check out the latest snapshot of the files, instead they fully mirror the repository including its full history. Every clone is a full backup of all the data. 
+
+Why is Git useful for an individual developer?
+
+- Provides information around history tracking of files, what changed, when it changed. When we provide good commit messages, it keeps record of why it changed.
+
+Why is Git and Github useful for a team of developers?
+
+- Ease of collaboration. Developers can work on same files at same time. Git assists with merging these changes back together. 
+- Github provides a UI to make using Git and performing operations like merges even easier. 
+- Github also provides user and roles capability, so that certain operations can be locked down to certain roles. We can then implement user-based change management via PRs.
+
+Basic Git commands:
+
+Commands related to a remote repository:
+git clone git@github.com:USER-NAME/REPOSITORY-NAME.git
+git push or git push origin main (Both accomplish the same goal in this context)
+
+Commands related to the workflow:
+git add .
+git commit -m "A message describing what you have done to make this snapshot different"
+
+Commands related to checking status or log history
+git status
+git log
+
+Best Practices:
+
+- Atomic commits - commit that includes changes related to only one feature or task. Easy to revert the specific change without losing other changes and enables you to write better commit messages. 
+- Use a subject line first if the commit message is long (limit to 50 characters)
+- Wrap the body manually
+- Use the body to explain what and why, rather than how

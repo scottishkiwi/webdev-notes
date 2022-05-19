@@ -1,0 +1,52 @@
+The most confusing thing about Flexbox is it can work either horizontally or vertically, which has an impact on certain rules and how they work. 
+
+The default direction is row (horizontal), but can be changed to column (vertical) using flex-direction:
+
+.flex-container {
+    flex-direction: column;
+}
+
+Axes:
+
+- flex containers have 2 axis, the main axis and the cross axis
+- flex-direction: row puts the main axis horizontal and flex-direction: column puts the main axis vertical
+
+Using flex-direction: column:
+
+.flex-container {
+  display: flex;
+   flex-direction: column;
+}
+
+.flex-container div {
+  flex: 1;
+}
+
+- Changes the flex items to align vertically instead of horizontal.
+- HOWEVER, the above will not work correctly because flex shorthand sets the flex-basis to 0
+    - This will then ignore the height declaration and the flex items will not display correctly
+    - We must use the following:
+
+
+.flex-container div{
+    flex: 1 1 auto;
+}
+
+- flex items will default to their declared height
+- This could also have been fixed by specifying a height on the flex container
+
+
+
+Knowledge check:
+
+How do you make flex items arrange themselves vertically instead of horizontally?
+- Use flex-direction rule and the column value
+
+In a column flex-container, what does flex-basis refer to?
+- When using a vertical main axis, the flex-basis refers to the height of the flex item
+
+In a row flex-container, what does flex-basis refer to?
+- When using a horizontal main axis, the flex-basis refers to the width of the flex item
+
+Why do the previous two questions have different answers?
+- Flex-basis is the initial size that the flex item grows from or shrinks to. We grow/shrink horizontally when using row so this would need flex-basis to refer to width. We grow/shrink vertically when using column so this would need flex-basis to refer to height. 

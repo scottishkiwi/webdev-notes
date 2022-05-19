@@ -1,0 +1,68 @@
+color and background-color: 
+
+- color sets an elements text color, background-color sets the background color of an element
+- Both can accept different types of values: 
+    
+p{
+    color: red;
+    color: #12100ff;
+    color: rgb(100, 0, 125);
+}
+
+Typography basics: 
+
+font-family:
+
+- can be a single value or a list of values that determine what element a font uses
+- Fonts fall into two categories: 
+    - a font-family name like "Times New Roman" (quotes)
+    - a generic family name like sans-serif (no quotes)
+- If a browser cannot find or does not support a font in the font-family list, it will use the next one, then the next one until it finds a supported/valid font
+    - For this reason, we list our fonts starting with the font we want to be used the most and end with a generic, widely supported font family as a fallback
+
+p{
+    font-family: "Times New Roman", sans-serif;
+}
+
+font-size:
+
+- sets the size of the font
+
+p{
+    font-size: 20px; 
+}
+
+font-weight:
+
+- sets the boldness of the text, assuming the font chosen supports the specific weight
+- the value can be a keyword or a number: 
+
+p{
+    font-weight: bold; 
+    font-weight: 600;
+}
+
+- Usually, the numeric values increment of 100 up to 900
+
+text-align: 
+
+- aligns text horizontally within an element
+- accepts common keywords:
+
+p {
+    text-align: center;
+}
+
+
+Image Height and Width: 
+
+- Certain elements allow adjustment of height and width, including Images
+- An <img> elements height and width values will be the same as the files height and width
+- To scale the image proportionally, we use a value of auto for the height and adjust the width value:
+
+img{
+    height: auto; 
+    width: 500px; 
+}
+
+- Good practice to include height and width value for all images as it will load and "reserve" the correct space needed in the DOM for this image, even if the image takes a while to load

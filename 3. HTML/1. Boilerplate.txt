@@ -1,0 +1,31 @@
+Basic Boilerplate for an HTML document
+
+Naming conventions:
+
+- Name it <blah>.html 
+- Usually the home page in a website is index.html. Web servers will by default look for an index.html when users visit a website. Can change this behavior in web server config.
+
+DOCTYPE: 
+
+- Every HTML page starts with a doctype declaration to inform the browser of what version of HTML it should use to render a document
+- The latest version of HTML is HTML5 and the doctype is simply: <!DOCTYPE html>
+
+<html> element: 
+
+- Root element of a document is the <html> element, every other element in the document will be a descendant of it. 
+- lang attribute in the html tag specifies the language of the text content inside the element. 
+
+<head> element: 
+
+- Meta-information about our webpages, e.g data for SEO, data for accessibility, title (displayed in browser tab)
+- Charset meta element
+    - Specifies the charset encoding of the webpages : <meta charset="utf-8">
+    - Ensures the webpage will display special symbols and characters correctly
+
+<body> element:
+
+- All the content that will be displayed 
+
+VSCode shortcut for boilerplate: 
+
+- Open a <x>.html file and remove everything. Type in ! on the first line and press enter key to select a boilerplate.

@@ -1,0 +1,126 @@
+Aside from default browser styles (which vary from browser to browser), CSS only does what we tell it to do. There can be confusion when we have rules that conflict with one another and we can end up with unexpected results. This unexpected behavior is a result of the cascade. 
+
+The cascade determines which rules actually get applied to our HTML. Here are some of the different factors that the cascade uses to determine this: 
+
+
+Specificity: 
+
+- The more specific a CSS declaration is, will give it more priority.
+- Inline styles have the highest specificity compared to selectors, then each type of selector has its own Specificity level that contributes to how specific a declaration is.
+- Specificity will only come into things when an element has multiple, conflicting declarations targeting it
+- Rules:
+    - An ID selector beats class selectors
+    - Class selectors beat type selectors
+    - Type selectors beat anything less specific than it (e.g * universal selector)
+    - When no declaration has a selector with a higher specificity, we calculate which selector has more selectors used (example 3)
+    - Combinators do not add to the specificity
+
+Examples: 
+
+1)
+.container {
+    color: blue; 
+}
+
+.container .contents {
+    color: red;
+}
+
+- Both rules are using class selectors, but the second is more specific because it is using more class selectors
+
+2)
+#container3 {
+    color: blue;
+}
+
+.container .contents {
+    color: red;
+}
+
+- ID selector takes precedence over class selectors 
+
+3) 
+
+#container3 .contents {
+    background-color: yellow; 
+    color: blue;
+}
+
+#container3 .contents .list {
+    color: red;
+}
+
+- Both rules using ID and class selectors, so neither is using a more specific selector than the other
+- The cascade checks the amount of each selector type. Both have one ID selector, but the second has more class selectors so has a higher specificity
+
+NOTE: While the color: declaration would take precedence, the background-color declaration would still be applied as there is no conflicting declaration
+
+4) 
+
+.class.second-class {
+    font-size: 12px;
+}
+
+.class .second-class {
+    font-size: 20px; 
+}   
+
+- Both rules have the same specificity as both rules have two classes. The combinator does not add to the specificity. 
+
+5)
+
+* {
+    color: black;
+}
+
+h1 {
+    color: orange;
+}
+
+- The second rule takes precedence as its using a type selector, which has the lowest specificity value but the first rule uses the universal selector, which has no specificity value
+
+
+
+
+Inheritance: 
+
+- Certain CSS properties are inherited by element's decedents, even if not written explicitly for the child e.g container elemet has a color applied that applies to the container contents elements
+- Typography based properties are usually inherited
+- Inheritance is overwritten if targeted specifically e.g:
+
+<div id="parent">
+  <div class="child"></div>
+</div>
+
+#parent { 
+    color: red;
+}
+
+.child { 
+    color: blue;
+}
+
+- Child element would be blue as the declaration directly targets it, while red is only inherited from the parent
+
+
+
+Rule Order:
+
+- The final factor, the tie-breaker of the tie-breaker
+- Whichever rule was the last defined takes precedence e.g:
+
+.alert {
+    color: red;
+}
+
+.warning {
+    color: yellow;
+}
+
+- For an element that has both the alert and warning classes, the cascade would run through the factors: 
+
+1. Inheritance (none here)
+2. Specificity (neither rule is more specific than the other)
+
+- Since the .warning rule is the last one defined, it takes precedence
+

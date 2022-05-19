@@ -1,0 +1,35 @@
+Relatively new way of positioning elements but has become default way of position elements for many developers
+
+Let's Flex:
+
+- Arrange elements into rows or columns
+    - Elements will flex (grow or shrink) based on flex rules we can define
+- Not just a single property but a whole toolbox of properties
+    - Some of these properties belong to the flex container and some apply to the flex item
+
+Flex container:
+
+- Any element that has display: flex; on it
+
+Flex item: 
+
+- Any element inside a flex container
+- Has flex:1; on it
+
+Note: 
+
+- An element can be a flex item and a flex container
+    - You can put display: flex; on a flex item, to make it become a flex container and use it to arrange its children
+    - Nesting multiple flex containers and items is the secret sauce to building complex layouts
+
+
+
+Knowledge Check: 
+
+What’s the difference between a flex container and a flex item?
+
+- A flex container is the outer container of flex items. An element is a flex container when it has the display: flex; on it. A flex item can be, itself, a flex container. 
+
+How do you create a flex item?
+
+- Be an element nested inside a flex container. Usually has flex: 1; on it. 

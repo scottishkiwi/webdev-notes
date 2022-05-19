@@ -1,0 +1,31 @@
+Block vs Inline: 
+
+- Most elements are block elements
+    - display: block; by default
+    - Appear on page stacked on top of each other, each element starting on a new line
+- Inline elements do not start on a new line, they appear in line with whatever they are placed beside
+    - e.g a <a> element will always display inline when nested inside a <p>
+    - padding and margin behave differently on inline elements
+- So what is Inline-Block?
+    - Elements with display: inline-block; behave like inline elements, with block style padding and margin. 
+    - Rare use case these days due to flexbox
+
+Div and Spans:
+
+- Unlike most elements, div and spans give no particular meaning to their content
+    - Just generic boxes that can contain anything
+- Use cases: 
+    - Grouping related elements under one parent element to correctly position the group on the page
+
+Div:
+
+- Block level element by default
+- Commonly used as a container element to group other child elements
+- Make it easy to divide the page into different blocks and apply styling to those blocks
+
+Spans:
+
+- Inline element by default
+- Groups text content and inline HTML elements for styling
+    - Should only be used when no other semantic HTML is appropriate
+

@@ -1,0 +1,53 @@
+The Box Model:
+
+- Every single thing on a webpage is a rectangular box 
+    - These can have other boxes in them, and can sit alongside one another
+    - Can view this easily by slapping a border on all elements: 
+
+* { 
+    border: 2px solid red;
+}
+
+- There are many ways to manipulate the size of these boxes, and the space between them:
+    - padding -> space between edge of box and content inside of it
+    - margin -> space between the box and others that are next to it
+    - border -> space between the margin and the padding
+- So the order is box, padding, border, margin, other box
+
+Alternative Box Model: 
+
+- To get the real width and height of the box, we have to add on the border and padding values
+- An alternative box model is introduced that ensures any width/height is the width/height of the visible box
+- Browsers use the standard box model by default, but we can use the alternative by adding: 
+
+.box{
+    box-sizing: border-box;
+}
+
+
+Margin/padding/border values:
+
+- set using lengths, percentages or the keyword 'auto'
+- accepts up to four values:
+
+margin: top, right, bottom, left;
+
+- If only two values are provided, it is assumed that top==bottom, right==left
+- If three values are provided, it is: 
+
+margin: top, left-and-right, bottom; 
+
+
+Auto and centering: 
+
+- A value of auto tells the browser to define the margin for us
+- It is very handy for horizontal centering: 
+
+.container {
+    width: 980px; 
+    margin: 0 auto; 
+}
+
+- Element is provided a specific width
+- Left and right margins are set to auto to center the element horizontally
+- Doesn't work vertically as margins overlap vertically to decrease unnecessary white space

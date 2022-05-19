@@ -1,0 +1,33 @@
+Working with Text:
+
+Paragraphs: <p></p> 
+
+- Adds newline after each of our Paragraphs
+
+Headings:
+
+- Six different levels of headings <h1> -> <h6> 
+- Ranked by importance and size 
+- Provides hierachy to the content
+- An <h1> should always be used for heading of the overall page
+
+Strong element:
+
+- <strong> makes text bold and marks it as important (affects tools like screen readers)
+- Usually used inside other tags
+
+Em element:
+
+- <em> makes text italic and places emphasis on the word (affects tools like screen readers)
+- Usually used inside other tags
+
+Nesting and indentation: 
+
+- Elements are nested within other elements creating parent and child relationships between them
+- Becomes important when we start working with CSS and Javascript
+
+HTML comments: 
+
+- Not visible to browser
+- Allow us to comment on our code using the following syntax <!-- dasdasdas --> 
+

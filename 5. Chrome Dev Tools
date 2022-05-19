@@ -1,0 +1,14 @@
+The Inspector: 
+
+- F12, right click and inspect element
+
+Elements pane:
+
+- Entire HTML structure of a page
+- Can click on elements to select that specific element
+    - This displays the styles pane showing the CSS applied to that specific element
+
+Testing styles: 
+
+- Can click inside and of the CSS selector to add a new rule or edit an existing rule
+- Won't affect source code, but great for testing

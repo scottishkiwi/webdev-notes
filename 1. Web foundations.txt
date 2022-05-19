@@ -1,0 +1,57 @@
+What is a network? 
+
+- Connection between machines so they can communicate. Either done physically (ethernet) or wirelessly (wifi, bluetooth). 
+
+What is a router? 
+
+- Larger networks become complicated. E.g ten machines would need 45 cables with nine plugs per machine. 
+    - Introduce Router: ensures that communication to a given computer arrives at correct destination
+    - Now ten machines only require 10 cables, a single plug for each machine and a router with 10 plugs
+
+What is the internet?
+
+- How about next scale up from 10 machines? 
+    - Can't use a single router for thousands of machines, so we connect routers to routers. (routers just another machine)
+    - This idea is the basis of the internet
+- What about connecting to other peoples network, we can't just set cables up between every house (or can we?)
+    - These wires already exist for telephone infra, but to connect our network to the telephone infra we need a modem. 
+    
+What is an ISP?
+
+- Sending a message from our network, to another network?
+    - We connect our network to an ISP. 
+- An ISP manages special routers that are all linked together and can access other ISP routers. Our message is carried through the network of ISP networks, to the destination. 
+
+What is an IP?
+
+- If we want to communicate with another computer, we have to specify which one. Any computer linked to a network has a unique address - an IP address (internet protocol). 
+- How to read IPs as humans?
+    - We alias an IP address with a human readable name - domain name. 
+
+What are clients and servers?
+
+- Clients -> web user's internet-connected device
+- Servers -> computers that store webpages, sites, apps
+
+What else is involved?
+
+- Internet connection -> allow you to send and receive data on the web
+- TCP/IP -> Transmission Control Protocol, Internet Protocol. Define how data should travel across the internet. 
+- DNS (Domain Name System) -> Address book for websites. Maps a web address in your browser to the websites IP address. 
+- HTTP (Hypertext Transfer Protocol) -> Application protocol that allows clients and servers to communicate. 
+- Component Files -> A website's files. Code files and website assets. 
+
+So what happens when I type in a domain name into my web browser?
+
+1. Browser goes to the DNS server and finds the IP address of the server that the website lives on
+2. Browser sends an HTTP request to the server asking for a copy of the website to the client. 
+    - This message and all data is sent between client and server using TCP/IP. 
+3. If server approves the request, it returns a 200 message (happy response) and then starts sending website files to the browser in a series of small chunks called data packers. 
+4. Browser assembles the chunks into a complete web page and displays it.
+
+What is a packet?
+
+- When data is sent across the web, it is sent in thousands of small chunks. Why? 
+    - Incase packets are dropped or corrupted, it is easier to replace small chunks when this happens
+    - Packets can be router along different paths, making the exchange faster
+    - If each website was sent in one big chunk, only one end user could download it at a time

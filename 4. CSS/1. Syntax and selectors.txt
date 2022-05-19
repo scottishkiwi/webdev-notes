@@ -1,0 +1,104 @@
+Basic Syntax:
+
+selector {
+    property: value;
+}
+
+Selectors:
+
+- HTML elements to which CSS rules apply (the rule determines what is to be selected and have the style applied)
+
+Universal Selector: 
+
+* {
+    color: red;
+}
+
+- Selects all elements and applies style
+
+Type Selectors: 
+
+div {
+    color: white;
+}
+
+- Selects all elements of the given element type using the name of the element
+
+Class Selectors:
+
+<div class="alert-text">
+    ALERT
+</div>
+
+.alert-text {
+    color: red;
+}
+
+- Selects all elements with the given class, an attribute you place in HTML elements 
+- Classes are not unique, you can use the same class for multiple elements that may share the style
+- You can also add multiple classes to a single element class="class-1 class-2"
+
+ID Selectors: 
+
+<div id="title">Title</div>
+
+#title{
+    color: blue;
+}
+
+- Selects elements with the given ID, an attribute you place in HTML elements
+- People overuse ID attribute when classes will suffice
+- Use case is usually specificity so should be used sparingly
+- Elements can only have ONE ID
+
+Grouping Selectors: 
+
+- If we have two groups of elements that share stylings: 
+
+.read, .unread {
+    color: white; 
+    background-color: black;
+}
+
+- Reduces repeated stylings
+- Makes it easier to edit the colours for both classes at once
+
+GOAL: Keep it DRY (Do not Repeat Yourself)
+
+Chaining Selectors: 
+
+<div class="subsection header">Video page</div>
+<div class="subsection preview">Video preview</div>
+
+.subsection.header{
+    color: red;
+}
+
+- Selects only elements that have both the subsection and header class
+- Can't chain Type Selectors as an element can't be more than one type
+- Can also be used to chain a class and ID e.g:
+
+.subsection#header{
+    color: blue;
+}
+
+Descendent Combinator: 
+
+- Four types of combinator but this is simplest
+- Only select elements that match the last selector to be selected, if they also have an ancestor (parent, grandparent etc) that matches the previous selector
+
+<div class="container">
+    <div class="contents">
+        <div class="contents">
+        </div
+    </div>
+</div>
+
+.container .contents{
+    color: blue;
+}
+
+- This will select both the divs with class="contents" as they both are nested inside an ancestor with the class container.
+- No limit to how many combinators you can add to a rule but you generally want to avoid selecting elements with too many levels of nesting
+
+

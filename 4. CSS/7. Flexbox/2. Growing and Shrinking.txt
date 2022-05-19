@@ -1,0 +1,66 @@
+When setting up flex items, we were adding the following declaration:
+
+flex: 1;
+
+Flex shorthand: 
+
+- The flex declaration is a shorthand for 3 properties that can be set on a flex item
+- flex is a shorthand for:
+    - flex-grow
+    - flex-shrink
+    - flex-basis
+
+e.g 
+
+div{
+    flex: [flex-grow] [flex-shrink] [flex-basis];
+}
+
+- It is common to see flex shorthand defined with one value
+    - This is the value applied to flex-grow, then flex-shrink and flex-basis use their default values (1 and 0% respectively)
+
+Flex-grow: 
+
+- Accepts a single number as its value, used as the flex items "growth factor".
+- When we apply flex: 1;, we are telling the flex items to grow the same amount. 
+    - Every flex item ends up the same size
+- If we used flex: 2; on one specific flex item, then that flex item would grow to 2x the size of the others
+
+Flex-shrink: 
+
+- Similar to flex-grow but sets the "shrink factor" of a flex item
+- Is only applied if the size of all flex items is larger than the parent container
+- Default is 1, meaning all items shrink evenly
+    - Can set to 0 so an item doesn't shrink at all
+    - Can also set higher numbers to make certain flex items shrink at a higher rate than normal
+
+NOTE: 
+- When using flex-grow or flex-shrink, flex items do not necessarily respect the given values for width
+- If the parent is bigger than the flex-items total width together, they grow to fill it and similar if the parent is too small, they shrink to fit
+- This same applies to height when using column (vertical) axis
+
+Flex-basis: 
+
+- Sets the initial size of a flex items
+    - Any flex-growing or flex-shrinking starts from that baseline size
+- The shorthand value defaults flex-basis to 0% meaning that flex items ignore the items width and everything shrink/grows evenly
+    - To ensure the flex item checks for a width declaration, we must use flex-basis: auto; 
+    - The same applies to height if using column (vertical) axis
+
+NOTE:
+- The default flex-basis value is auto, but if you use the flex shorthand, it sets the default flex-basis value to 0
+- This is to make it easier to just use the shorthand to either grow or shrink items
+
+
+In Practice: 
+
+- Generally we will just be using flex: 1; to make flex items grow evenly, and flex-shrink: 0 on certain items to stop them from shrinking
+
+
+Knowledge check: 
+
+What are the 3 values defined in the shorthand flex property (e.g. flex: 1 1 auto)?
+
+- flex-grow (flex items growth factor), flex-shrink (flex items shrink factor) and flex-basis (initial size of a flex item to either grow or shrink)
+- In this case, we are setting the growth and shrink factor to 1 and setting initial size to auto, so the items will only grow from or shrink to their width value
+

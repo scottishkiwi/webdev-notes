@@ -1,0 +1,14 @@
+Lists: 
+
+Unordered list: 
+
+- Order doesn't matter
+- <ul> element and <li> child elements
+- Styled with a bullet point by default
+
+Ordered list:
+
+- Order does matter
+- <ol> element with <li> child elements
+- Styled with a number by default
+
