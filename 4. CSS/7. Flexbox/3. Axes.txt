@@ -27,7 +27,6 @@ Using flex-direction: column:
     - This will then ignore the height declaration and the flex items will not display correctly
     - We must use the following:
 
-
 .flex-container div{
     flex: 1 1 auto;
 }

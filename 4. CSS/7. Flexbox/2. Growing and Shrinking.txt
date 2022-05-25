@@ -17,12 +17,12 @@ div{
 }
 
 - It is common to see flex shorthand defined with one value
-    - This is the value applied to flex-grow, then flex-shrink and flex-basis use their default values (1 and 0% respectively)
+    - This is the value applied to flex-grow, then flex-shrink and flex-basis use their default values (1 and 0% respectively, in this case)
 
 Flex-grow: 
 
 - Accepts a single number as its value, used as the flex items "growth factor".
-- When we apply flex: 1;, we are telling the flex items to grow the same amount. 
+- When we apply flex: 1; we are telling the flex items to grow the same amount. 
     - Every flex item ends up the same size
 - If we used flex: 2; on one specific flex item, then that flex item would grow to 2x the size of the others
 

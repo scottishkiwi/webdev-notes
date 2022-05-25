@@ -48,6 +48,7 @@ git log
 Best Practices:
 
 - Atomic commits - commit that includes changes related to only one feature or task. Easy to revert the specific change without losing other changes and enables you to write better commit messages. 
+- Write as if giving a command or instruction e.g clean your room. "if applied, this commit will _____________"
 - Use a subject line first if the commit message is long (limit to 50 characters)
 - Wrap the body manually
 - Use the body to explain what and why, rather than how

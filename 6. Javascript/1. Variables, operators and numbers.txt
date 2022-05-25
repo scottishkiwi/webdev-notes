@@ -1,0 +1,315 @@
+How to run Javascript code?
+
+- Ran via the browser, but can also use NodeJS and similar to run JS outside of the browser
+- Simplest way to get started is to use an HTML file with JS code inside a <script> element
+    - This can be pure JS or it can be a script element with the src attribute, which is a path the a JS file:
+
+<body>
+    <script>
+        // Your JavaScript goes here!
+        console.log("Hello, World!")
+    </script>
+</body>
+
+or:
+
+<script src="scripts.js"></script>
+
+#####################################################################
+
+Variables:
+
+- Named storage for data 
+- Use the let keyword:
+
+let message;
+message = "hello";
+alert(message);
+
+- We can declare multiple variables in one line: 
+
+let user = 'Dan', age = 25, message = 'Hello';
+
+- Multiline variant is preferred for ease of readability: 
+
+let user = 'John';
+let age = 25;
+let message = 'Hello';
+
+or: 
+
+let user = 'John',
+    age = 25,
+    message = 'Hello';
+
+- You will see use of var instead of let. These are almost the same, but the difference is due to scoping rules for the variables
+    - Variables declared with var are either function scoped (declared inside a function) or global scoped:
+
+using var:
+
+if (true) {
+    var test = true; // use "var" instead of "let"
+}
+alert(test); // true, the variable lives after if
+
+using let:
+
+if (true) {
+    let test = true; // use "let"
+}
+alert(test); // ReferenceError: test is not defined
+
+- The let keyword allows us to assign a value to the variable, and also change it as many times as we want
+- We can also declare to variables, and copy data from one to another: 
+
+let moon = "cake";
+let rock; 
+rock = moon;
+alert (rock); //prints cake
+
+- We cannot declare the same variable with let twice e.g 
+
+let message = "this";
+let message = "that"; //Syntax error
+
+Variable naming: 
+
+1. The name must contain only letters, digits or symbols $ and _
+2. The name cannot start with a digit
+
+- We use camelCase normally e.g myVeryLongVariableName
+- Case matters (apple and APPLE are two different variables)
+- We cannot use reserved words for variable names: 
+    - let, class, return, function etc.
+
+Constants:
+
+- An unchanging (constant) variable
+- We use the const keyword:
+
+const myBirthday = "01/01/2000";
+
+- We cannot reassign to this variable 
+- Widespread practice to use constants as aliases for trick to remember values
+    - Such constants are named using capital letters and underscores:
+
+const COLOR_RED = "#F00";
+const API_ENDPOINT = "example.com/endpoint";
+
+- We do this as the variables are easier to remember and readability
+- Capital named constants are only used as aliases for 'hard-coded' values, we just use the normal camelCase for constants that are calculated at run-time (e.g pageLoadtime)
+
+Name things right: 
+
+- Name should have a clean, obvious meaning describing the data it stores 
+- Use human-readable names
+- Find the balance of descriptiveness and conciseness 
+
+#####################################################################
+
+Numbers: 
+
+- JS has one type of number and can be written with or without decimals
+
+let x = 3.14;
+let y = 3; 
+
+- Unlike most other programming languages, there are no types of numbers like integers, doubles, floats, longs etc.
+- JS stores numbers in 64 bits 
+
+Adding Numbers and Strings: 
+
+- WARNING: JS uses the + operator for both addition and concatenation. Numbers are added, strings are concatenated. 
+    - If we add a number and a string together, the result is a string concatenation
+    - The JS interpreter works left to right: 
+
+let x = 10;
+let y = 20;
+let z = "30";
+let result = x + y + z; // result will be 3030 (10+20 first, then 30+'30')
+
+- What about the other non-addition operators with strings?
+    - JS will try to convert the strings to numbers for all non-addition operators (because addition is used for concatenation)
+
+NaN - Not a number:
+
+- Reserved word indicating a number is not a legal number
+
+let x = 100/ "apple";
+
+- Any mathematical operation with NaN used, will result in a NaN 
+- Global JS function isNaN() exists to find out if a value is a number of not
+- NaN is of Number type (typeof NaN; returns Number)
+
+Infinity (or -Infinity):
+
+- Numeric value that wil return the largest (or smallest) possible number
+- Is of type Number
+- Division by 0 also generates Infinity 
+
+JavaScript Numbers as Objects:
+
+- JS numbers are primitive values from literals: 
+let x = 123;
+
+- Can also define numbers as a Number object using the new keyword:
+
+let y = new Number(123); 
+
+- This is not something we do generally as the new keyword is slow and Number Objects can produce unexpected results 
+    - e.g comparing two Number objects will always return false even if they are the same number
+
+#####################################################################
+
+Basic Operators and Maths: 
+
+- Addition +, Subtraction -, Multiplication *, Division /, Remainder %, Exponentiation **
+
+Remainder (%):
+
+- Not related to percents, a % b gives the remainder of the integer division a by b 
+- Crucial part of determining odd/even numbers
+
+Exponentiation (**):
+
+- a ** b raises a to the power of b 
+
+Unary +:
+
+The plus operator applied to a single value does nothing for numbers, but will convert non-numbers into a number: 
+
+// No effect on numbers
+let x = 1;
+alert( +x ); // 1
+let y = -2;
+alert( +y ); // -2
+
+// Converts non-numbers
+alert( +true ); // 1
+alert( +"" );   // 0
+
+We can then add strings that we want to use as numbers by using the unary operator: 
+
+let apples = "2";
+let oranges = "3";
+
+alert (+apples + +oranges); //5
+
+This works because unary plusses are applied before the binary plus (the operator between the two operands) is because of Operator precedence
+
+Operator precedence:
+
+- Classic Pedmas/Bedmas
+- Every operator has a corresponding precedence number and the one with the largest number executes first
+- We just need to note that unary operators are higher in precedence than corresponding binary operators 
+
+Assignment (=): 
+
+- The assignment = is also an operator and has a very low priority value
+- That is why the calculations are done before assignment when creating a variable like so: 
+let x = 2 * 2 + 1;  
+
+- We can chain assignments: 
+
+let a,b,c; 
+a = b = c = 2 + 2; 
+
+- The rightmost expression takes precedence and then assigns to all the variables on the left
+
+Modify-in-place: 
+
+- We often need to apply an operator to a variable and store the new result in the same variable: 
+
+let n = 2; 
+n = n + 5; 
+n = n * 2; 
+
+- This can be shortened using += and *=: 
+
+let n =2; 
+n += 5; 
+n *= 2; 
+
+- These shorter 'modify-and-assign' operators exist for all operators
+
+Increment/decrement: 
+
+- This is a very common numerical operation
+- Special operators: 
+
+let counter = 2;
+counter++; 
+
+let counter = 2; 
+counter--; 
+
+- This can only be applied to variables, not values (e.g 5++)
+- The ++ and -- operators can be placed either before or after a variable, and there is a slight difference:
+    - The prefix form returns the new value while the postfix form returns the old value (prior to increment/decrement).
+
+- If the result of the increment/decrement is not specifically used, then there is no difference: 
+let counter = 0;
+counter++;
+++counter;
+alert( counter ); // 2, the lines above did the same
+
+- If we want to increase a value and immediately use the result of the operator we use prefix-form: 
+let counter = 0; 
+alert(++counter); // 1
+
+- If we want to increment a value but use its previous value, we use the postfix form: 
+let counter = 0; 
+alert(counter++); // 0 
+
+Comma operator: 
+
+- Rare and unusual, but can be used in some frameworks
+- Allows us to evaluate several expressions, diving them by a comma
+    - Each expression is evaluated, but only the result for the last is returned
+
+e.g 
+let a = (1+2, 3+4); 
+alert(a); //7
+
+#####################################################################
+
+Knowledge Check: 
+
+Name the three ways to declare a variable?
+- let, var and const. We try to avoid var now. let is for variables that change, const is for variables that don't change. 
+
+Which of the three variable declarations should you avoid and why?
+- var is avoided these days as it has some features like being function or globally scoped which can cause unexpected results
+
+What rules should you follow when naming variables?
+- camelCase and keep it concise but descriptive
+
+What should you look out for when using the + operator with numbers and strings?
+- Combining numbers and strings with the + operator will turn the result into a string because we use + for concatenation.
+
+How does the % operator work?
+- a % b gives the remainder value of a divided by b. 
+
+Explain the difference between == and ===
+- == compares two variables but ignores the type of variable, === compares two variables but also checks the datatype of the variables
+
+When would you receive a NaN result?
+- When a value that isn't a number is being treated like a number e.g let = x / "helloworld"; 
+
+How do you increment and decrement a number?
+- With ++ and -- operators
+
+Explain the difference between prefixing and post-fixing increment/decrement operators
+- Prefixing means that the value returned is the value after the increment/decrement has evaluated. Postfixing means that the value returned is the value before the increment/decrement.
+
+What is operator precedence and how is it handled in JS?
+- Operator precedence is the order of which operations are evaluated based on a priority number they have. Unary operators have some of the highest priority, and the assignment operator has the lowest. 
+
+How do you access developer tools and the console?
+- Inspect element, F12 etc. 
+
+How do you log information to the console?
+- console.log('blah'); 
+
+What does unary plus operator do to string representations of integers?
+- It converts the string representations of an integer into a numeric representation.

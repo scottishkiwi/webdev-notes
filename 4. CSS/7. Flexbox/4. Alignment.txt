@@ -1,0 +1,38 @@
+We know the flex: 1; rule makes items grow or shrink to fill available space. This isn't always the desired effect. 
+
+Justify-content:
+
+- Distributes flex items inside the container based on value provided
+- Aligns items across the main axis
+- Rule is applied to the flex container
+
+div {
+    Justify-content: space-between;
+}
+
+Align-items: 
+
+- Distributes flex items along the cross axis
+- Rule is applied to flex container
+
+NOTE: 
+- justify-content and align-items are based on the main and cross axis of the flex container thus their behavior changes when we change the flex-direction
+- Can result in unexpected results if not careful
+
+Gap: 
+
+- Adds a space between flex items, similar to adding margin to items
+- Rule is applied to flex container
+- Very new but browser supported
+
+
+Knowledge Check:
+
+What is the difference between justify-content and align-items?
+- justify-content distributes flex items along the main axis, align-items distributes flex items along the cross axis. These swap when we change the flex-direction of a flex container.
+
+How do you use flexbox to completely center a div inside a flex container?
+- set justify-content to center, set align-items to center
+
+What’s the difference between justify-content: space-between and justify-content: space-around?
+- space-between creates even space between the flex items with no care for space on the outermost flex items. space-around creates even space between and around the flex items. 
