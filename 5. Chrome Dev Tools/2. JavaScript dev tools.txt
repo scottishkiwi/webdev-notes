@@ -1,0 +1,89 @@
+Console overview:
+
+- We often log messages to the console to make sure JS is working as expected using console.log('string'); 
+- Allows us to: 
+    - Ensure code is executing in the right order
+    - Inspect the values of variables at a certain moment in time
+
+Running JS: 
+
+- The console is a REPL (Read–eval–print loop)
+- We can run JS in the console to interact with the page we are inspecting:
+
+e.g document.querySelector('h1').textContent= "Hello, world";
+
+- This is possible because the console has full access to the pages window
+
+- Can also just run JS that doesn't interact with the page to test code/new functions
+- Can also use the debug() devtools function that pauses our code on the first line of a function e.g
+
+debug(hideModal)
+- Pauses code on the first line of hideModal the next time that it's called
+
+#####################################################################
+
+Simulate mobile devices with Device Mode: 
+
+- Device Mode allows us to simulate a mobile device in browser
+- Does not simulate the mobile CPU or any mobile system architecture so when in doubt, its best to test on an actual mobile device
+
+- We click Toggle Device Toolbar to open the UI that simulates a mobile viewport
+    - We can drag the handles to resize the viewport to the dimensions we desire, or enter specific values at the top of the page
+    - We can also select a specific mobile device from the device list and click rotate the rotate the viewport to landscape
+    
+- Clicking on the kebab icon gives us more options, such as showing media queries
+    - This displays the media query breakpoints
+    - We can click on a breakpoint to change the viewport's width so that the breakpoint gets triggered and we can see the behavior 
+
+- We can select the Device type to simulate a mobile device or a desktop device
+    - This changes not just the size of the viewport, but also the events fired e.g click for desktop and touch for mobile
+
+- We can throttle the network and CPU by selecting mid-tier mobile or low-end mobile from the Throttle list
+
+#####################################################################
+
+Debugging JavaScript: 
+
+- We can utilize the sources panel for JS Debugging
+- The 3 parts of the Sources panel UI are: 
+    - The file navigator pane - every file the page requests is listed here
+    - The code editor pane - after selecting a file in the file navigator pane, the contents of that file are displayed
+    - The JavaScript debugging pane - various tools for inspecting the page's JS
+
+- A common method for debugging is to insert a lot of console.log() statements
+    - This gets the job done, but breakpoints get the job done faster
+
+- A breakpoint lets you pause your code in the middle of its execution and examine all values at that moment in time
+
+Example with event listener breakpoints: 
+
+1) In the JS debugging pane, click event listener breakpoints to expand the section
+2) Next to the Mouse event category, click expand. DevTools reveals a list of mouse events such as click and mousedown
+3) Select an event listener such as click. DevTools is now setup to pause when any click event listener executes
+
+Breakpoint types and when they pause the code: 
+
+Line-of-code -> On an exact region of code
+Conditional line-of-code -> On an exact region of code, when some condition is true
+DOM -> On the code that changes or removes a specific DOM node
+XHR -> When an XHR URL contains a string pattern
+Event listener -> On code that runs after an event
+Exception -> On the line of code that is throwing a caught or uncaught exception
+Function -> When a specific function is called 
+
+#####################################################################
+
+Knowledge check: 
+
+How do you open developer tools?
+- F12, inspect element etc. 
+
+How do you change screen size of a website using developer tools?
+- Can use the device mode feature that allows us to select screen size and also select certain desktop/mobile devices to imitate 
+
+What is a breakpoint?
+- A point in the code where we pause to evaluate the values at the time that the code is paused. We usually pause on a particular line of code, of maybe after a specific event. 
+
+How do you set a breakpoint?
+- In the sources tab, we open the file with the line of code we want to break on, go to the line of code and click on the line number column
+- A blue icon appears on top of the line number column to indicate a break point has been set
