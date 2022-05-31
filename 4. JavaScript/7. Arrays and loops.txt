@@ -1,0 +1,255 @@
+Arrays: 
+
+- List of items stored together in one data structure
+- Can hold many values under a single name, and we can access the values by referring to an index number
+
+const array_name = [item1, item2, ...]
+
+- It is good practice to declare arrays with the const keyword
+- A declaration can also span many lines: 
+
+const cars = [
+    "Saab",
+    "Renault",
+    "Ford"
+];
+
+- We can also create an array and then populate it later: 
+
+const cars = [];
+cars[0] = "Saab";
+cars[1] = "Renault";
+cars[2] = "Ford";
+
+- We can also use the JS Keyword 'new':
+
+const cars = new Array("Saab", "Renault", "Ford); 
+
+- WARNING: these are not the same: 
+
+const points = [40];
+const points = new Array(40); // providing just one parameter to the new Array constructor will create an array with 40 undefined elements
+
+- We access array elements using their index number:
+
+let car = cars[0];
+
+- We can change the value of an element by setting the element to a new value: 
+
+cars[0] = "Opel";
+
+- Arrays are a special type of object
+    - The typeof operator returns object for arrays
+- However, JS arrays are best described and thought of as arrays
+    - They use numbers to access its elements
+    - Objects use names to access its elements
+
+- We can have variables of different types in the same Array
+    - e.g objects, functions, even arrays in an Array
+
+
+Array Properties and Methods: 
+
+cars.length // Returns the number of elements 
+cars.sort() // Sorts the array
+
+- We can use the .length property to get the last element of the array:
+
+let lastCar = cars[cars.length - 1]; // The length property is always one more than the highest array index
+
+
+Looping Array elements: 
+
+- A for loop: 
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let currentFruit;
+for(let i = 0; i < fruits.length; i++){
+    currentFruit = fruits[i];
+}
+
+- Can also us the forEach function: 
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let currentFruit;
+fruits.forEach(function(){
+    currentFruit = fruits[i];
+})
+
+
+Adding Array elements: 
+
+- Easiest way is to use push() Methods
+
+const fruits = ["Banana", "Orange", "Apple"];
+fruits.push("Lemon");
+
+- But can also utilize the .length property: 
+
+const fruits = ["Banana", "Orange", "Apple"];
+fruits[fruits.length] = "Lemon";  // Adds "Lemon" to fruits
+
+
+The Difference between Arrays and Objects:
+
+- Arrays use numbered indexes
+- Objects uses named indexes
+- What about associated arrays (arrays with named indexes)? - NO, JS does not support arrays with named indexes. 
+    - Using named indexes on an array will redefine the array to an object
+
+
+How to recognise an array: 
+
+- The problem is that the typeof operator returns objects for arrays
+- Solutions: 
+
+1) Array.isArray(fruits);
+2) fruits instanceof Array; 
+
+#####################################################################
+
+JavaScript Array Methods: 
+
+toString();
+- converts an array to a string of comma separated values
+
+join(); // parameter - separator
+- Joins all array elements into a string but we can specify the separator 
+
+pop(); 
+- Removes the last element from an array
+
+push(); // parameter - element to add
+- Adds a new element to an array (at the end)
+
+shift();
+- Removes the first array element and "shifts" all other elements to a lower index
+
+unshift(); // parameter - the new element to add
+- Adds a new element to an array and "shifts" all other elements to a higher index
+
+concat(); // parameter - the array to concatenate, can be more than one
+- Merges existing arrays into a new array
+e.g 
+const myGirls = ["Cecilie", "Lone"];
+const myBoys = ["Emil", "Tobias", "Linus"];
+const myChildren = myGirls.concat(myBoys);
+
+#####################################################################
+
+Looping code: 
+
+- We have a collection of items and want to do something with every item e.g Array, Set, Map 
+
+The for..of loop: 
+
+const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
+
+for (const cat of cats){
+    console.log(cats); 
+}
+
+map() and filter():
+
+- map() does something to each item in a collection and creates a new collection containing the changed items:
+
+const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
+const upperCats = cats.map(toUpper);
+
+- map() calls the function once for each item in the array and then adds the return value from each function call to the new array
+
+- filter() tests each item in a collection by some condition and then returns the items that match/pass the condition: 
+
+const cats = ['Leopard', 'Serval', 'Jaguar', 'Tiger', 'Caracal', 'Lion'];
+const filtered = cats.filter((cat) => cat.startsWith('L'));
+});
+
+- filter() expects a boolean result for each item and if true, the item is included in the new array
+
+The standard for loop:
+
+for(initializer; condition; final-expression){
+}
+
+e.g for (let i = 0; i < 10; i++){
+
+}
+
+for (const cat of cats){
+    console.log(cats); 
+}
+can be re-written: 
+for (let i=0; i<cats.length; i++){
+    console.log(cats[i]);
+}
+
+- We can add conditions inside the for loop so that the behavior is different based on some condition 
+- We need to keep an eye on the use of < vs <= and .length to avoid IndexOutOfBoundsException
+
+Exiting loops with break:
+
+- We can use the break statement to exit a loop before all the iterations have been completed
+    - This results in efficient code e.g if we are only looking for one match/the first match in a loop then we don't keep looking after we've found it
+
+Skipping iterations with continue: 
+
+- Works similar to break but instead of breaking out of the loop, it skips to the next iteration of the loop
+
+
+While and do ... while: 
+
+- While works similar to the for loop except the initializer variable is set before the loop and the final expression is included inside the loop: 
+
+initializer
+while (condition) {
+  // code to run
+
+  final-expression
+}
+
+- The do..while is very similar but has a small variation: 
+
+initializer
+do {
+  // code to run
+
+  final-expression
+} while (condition)
+
+- The main difference is that the code inside a do..while loop will always get executed at least once, because the condition comes after the code inside the loop. So the code is run and then checks to see if we need to run it again
+    - In while and for loops, the check comes first so the code may never be executed
+
+- We must ensure we increment (or decrement depending on the case) our initializer otherwise we can get caught in a loop and overflow the call stack of the browser
+
+#####################################################################
+
+Knowledge Check:
+
+What is an array?
+- A collection of values stored together in one data structure
+
+What are arrays useful for?
+- Grouping items together
+
+How do you access an array element?
+- Use its index to access an element e.g array[0]
+
+How do you change an array element?
+- Use the index to access the element and then assign the new value e.g array[1] = "this string now"; 
+
+What are some useful array properties?
+- .length returns the number of elements in the array
+
+What are some useful array methods?
+- .sort(), .toString(), .join(), .pop(), .push(), 
+
+What are loops useful for?
+- Loops are useful for iterating through a collection of items either to: 
+    - compare items
+    - make a change to all of certain items based on some conditions
+
+What is the break statement?
+- The break statement forces us to quit the loop and continue executing the code below the loop
+
+What is the continue statement?
+- The continue statement forces us to quit the current iteration of the loop and start the next iteration 

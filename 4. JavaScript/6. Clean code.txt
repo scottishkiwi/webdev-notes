@@ -1,0 +1,30 @@
+Rules of Thumb: 
+
+1) Indentation:
+- There are various options and some recommended one over another but what is important is consistency, using the same indentation. 
+
+2) Semicolons:
+- These are mostly optional because the JS compiler will automatically insert them if they are omitted.
+
+3) Line length: 
+- Limit the length of each line of code. Not quite as strict of a rule but code will be easier to read if the lines are broken and not longer than 80 characters. 
+- When manually breaking a line, you should indent the second line 2 levels e.g 
+
+let reallyReallyLongLine = something + somethingElse + anotherThing +
+		howManyTacos + oneMoreReallyLongThing;
+
+4) Naming things: 
+- Names should be descriptive and use camelCase
+- Variables should always begin with a noun/adjective and functions with a verb 
+- It is okay to use single characters as variable names in the context of a loop or callback function, but not elsewhere
+
+Knowledge Check: 
+
+Why is it important to write clean code?
+- Mainly for readability to make the overall build more efficient
+
+Name 5 clean code principles previously mentioned
+- Correct indentation, write explanatory comments, avoid large functions, avoid abusing comments, use naming standards. 
+
+What is the difference between good comments and bad comments?
+- Keen it concise and only comment in terms of variables and results except for authoring specifications. 
