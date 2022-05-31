@@ -1,0 +1,73 @@
+Three steps of problem solving process: 
+
+1) Understand the problem
+
+- Need to understand the problem to know if you have successfully solved it
+- Can gain clarity and understanding of a problem by writing it down, rewording it, drawing diagrams, explaining the problem to someone else
+
+2) Plan 
+
+- Does your program have a UI? What will it look like? What functionality does it need?
+- What inputs will the program have? Will the user enter data? 
+- Whats the desired output? 
+- Given the inputs, what steps are required to get to the desired outputs?
+    - This final step is where we will write our algorithms to solve the problem
+    - Algorithms are just a recipe for solving a particular problem 
+    - Usually defined in pseudocode, it defines the steps that the computer needs to take to solve a problem 
+        - Pseudocode: - Writing out login for the program in natural language instead of code
+
+3) Divide and Conquer
+
+- We should have identified some sub-problems of the bigger problem 
+- Each of the steps in the algorithm we wrote out in psuedocode are sub-problems
+    - We start with the simplest and start coding
+- Decomposing problems into smaller and easier sub-problems is a better approach than trying to solve the big problem all in one go
+
+Example: 
+
+Solving FizzBuzz: 
+
+Write a program that takes a user’s input and prints the numbers from one to the number the user entered. However, for multiples of three print Fizz instead of the number and for the multiples of five print Buzz. For numbers which are multiples of both three and five print FizzBuzz.
+
+1) Understand the problem 
+
+- User enters a number
+- Print each number between one and the number entered
+    - BUT for numbers that divide by 3, print Fizz and for numbers that diving by 5 print Buzz
+    - For numbers that divide by both 3 and 5, print FizzBuzz
+
+2) Plan
+
+- The solution will be a browser console program so we don't need an interface
+- User needs to be able to enter a number from a prompt
+
+Psuedocode: 
+
+When a user inputs a number:
+Loop from 1 to the entered number
+If the current number is divisible by 3 print Fizz 
+If the current number is divisible by 5 print Buzz 
+If the current number is divisible by 3 and 5 print FizzBuzz
+Otherwise print the current number
+
+3) Divide and Conquer
+
+- First problem we need to solve is getting input from the user
+
+let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to:"));
+
+- Now for the loop: 
+
+for (let i=0; i<=answer; i++){
+    if (i % 3 === 0){
+        if (i % 5 === 0){
+            console.log('FizzBuzz'); 
+        }else{
+            console.log('Fizz');
+        }
+    }else if (i % 5 === 0){
+        console.log('Buzz');
+    }else{
+        console.log(i);
+    }
+}

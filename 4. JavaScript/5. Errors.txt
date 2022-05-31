@@ -1,0 +1,58 @@
+The anatomy of an Error:
+
+- Type of object built into JS
+    - Consists of a name/type and a message
+    - Also gives us the name of the file in which the error can be found and the line number 
+- Clicking on an error can provide the stack trace
+    - Lets us trace the evolution of the error back to its origin call
+
+
+Common types of errors:
+
+Syntax Error: 
+
+- Code is not written correctly, according to the grammatical rules of JS
+
+Reference Error:
+
+- Thrown when one refers to a variable that is not declared or initialized within the current scope
+- Error name/type is: "Uncaught ReferenceError", the message varies based on the Error
+
+Type Error:
+
+- Generally related to an issue with the data type you are trying to run an operation against
+    - An argument passed to a function is incompatible with the type expected by that function
+    - Attempting to modify a value that cannot be changed
+    - Attempting to us a value in an incorrect way 
+
+
+Tips for resolving errors:
+
+1) Read carefully and understand
+
+2) Google the error
+    - Likely a fix/explanation on StackOverflow or in the JS/library docs
+
+3) Use the DevTools debugger
+    - Set a breakpoint to view the value of a given variable at any point and then step through the code line by line
+
+4) Use console.log() for quick debugging to get immediate feedback without needing to step through your functions
+
+
+Errors vs Warnings:
+
+- Errors stop the execution of a program 
+- Warnings are messages that provide insight on potential problems that may not necessarily crash the program 
+    - Typically shown in yellow
+
+
+Knowledge Check: 
+
+What are three reasons why you may see a TypeError?
+- Trying to use a data type in a way that it is not meant to be used e.g calling .push on a String 
+
+What is the key difference between an error and a warning?
+- Errors will stop the program from executing at all, warnings are just messages that provide insight on possible problems but will not cause the program to stop working
+
+What is one method you can use to resolve an error?
+- Debugging, Googling
