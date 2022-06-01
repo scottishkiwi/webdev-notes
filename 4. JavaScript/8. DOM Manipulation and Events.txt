@@ -1,0 +1,242 @@
+DOM - Document Object Model
+
+- Tree like representation of a webpage
+    - Tree nodes represent the different elements
+
+
+Targeting nodes with selectors: 
+
+- We use selectors to target the nodes we want to work with
+    - Selector style is similar to CSS e.g:
+
+const containerElement = document.querySelector('#container');
+const controllerElement = document.querySelector('.controller');
+
+- We can then use relational selectors to target a certain node based on its relationship to the nodes around it: 
+
+const firstChild = container.firstElementChild;
+
+
+DOM Methods: 
+
+- The DOMs nodes are actually JS objects that have many properties and methods attached to them that help us manipulate the webpage with JS
+
+Query Selectors: 
+
+element.querySelector(selector); // returns a reference to the first match of the selector
+element.querySelectorAll(selectors); // returns a nodelist containing references to all matches of the selectors
+
+- NOTE: the querySelectorAll() method does not return an array, even though it looks like an array
+
+Element Creation: 
+
+- Creates a new element based on the provided parameters:
+
+document.createElement(elementName, [options]);
+const div = document.createElement('div');
+
+- This function does not add the new element to the DOM, it simply creates it in memory. 
+    - We can then manipulate it (adding styles, classes, text) before place it on the page
+
+Append Elements: 
+
+parentNode.appendChild(childNode); // appends childNode as the last child of parentNode
+parentNode.insertBefore(newNode, referenceNode); // inserts newNode into parentNode before referenceNode
+
+Remove Elements:
+
+parentNode.removeChild(child); // removes child from parentNode on the DOM and returns a reference to child
+
+Altering Elements: 
+
+- When we have a reference to an element we can use that reference to alter properties like attributes, classes, inline style etc.
+
+const div = document.createElement('div');
+
+Adding inline styles:
+
+div.style.color = 'blue';
+div.style.cssText  'color: blue; background: white');
+
+NOTE: if we are accessing a kebeb-cased CSS rule (like background-color), we need to use camelCase to access it: 
+
+div.style.background-color // doesnt work
+div.style.backgroundColor // does work
+
+Editing Attributes: 
+
+div.setAttribute('id', 'theDiv'); 
+div.getAttribute('theDiv'); 
+
+div.classList.add('new');
+div.classList.remove('new');
+div.classList.toggle('active'); // it is a clean practice to toggle the CSS style rather than adding and removing CSS 
+
+Adding Content: 
+
+div.textContent = 'Hello world'; 
+div.innerHTML = '<span>Hello world</span>';
+
+NOTE: textContent is preferable for adding text, innerHTML should be used sparingly as it creates security risks if misused (e.g HTML injection)
+
+IMPORTANT NOTE: 
+
+- JavaScript is run whenever the file is run, of when the script tag is encountered in the HTML. 
+- If we are including the JS file at the top of our file, many of these DOM manipulations will not work because the code is being run before the nodes are created in the DOM
+- This is why we include the JS at the bottom of the HTML file
+    - Alternatively we can load the JS in the head element but use the defer keyword: 
+
+<head>
+    <script src="js-file.js" defer></script>
+</head>
+
+#####################################################################
+
+Events: 
+
+- Events are actions that occur on the webpage such as mouse-clicks or keypresses
+    - Using JS we can listen for these events and react to them
+- There are three methods to go about this: 
+
+1) Using the onclick attribute in the HTML: 
+
+<button onclick="alert("hello world")">Click me</button>
+
+- Not ideal as it is cluttering our HTML with JS and we can have only one onclick event per element
+
+2) Setting the on_event property on the DOM object in JS: 
+
+<button id="btn">Click Me</button> // in HTML file
+
+const btn = document.querySelector('#btn'); // in JS file
+btn.onclick = () => alert("Hello World");
+
+- Cleaner and HTML/JS are separated but still limited by only have 1 onclick property
+
+3) Using EventListeners:
+
+<button id="btn">Click Me</button> // in HTML file
+
+const btn = document.querySelector('#btn'); // in JS file
+btn.addEventListener('click', () => {
+  alert("Hello World");
+});
+
+- Allows multiple event listeners if the need arises
+
+NOTE: all of these 3 methods can also call named functions as well: 
+
+function alertFunction() {
+  alert("YAY! YOU DID IT!");
+}
+
+<button onclick="alertFunction()">CLICK ME BABY</button> // method 1
+
+btn.onclick = alertFunction; // method 2
+
+btn.addEventListener('click', alertFunction); // method 3
+
+- This can be cleaner and is definitely a good idea if the function is going to be used in multiple places
+
+What is e?
+
+- The e is an object that references the event itself
+- Within e, there are useful properties and functions such as which mouse button or key was pressed and info about the events target (the DOM node that had an event)
+    - This allows for this kind of dynamic DOM manipulation: 
+
+btn.addEventListener('click', function (e){
+    e.target.style.background = 'blue';
+});
+
+Attaching listeners to groups of DOM nodes: 
+
+- Can utilize the query selector methods to get a nodelist that references multiple nodes
+    - We can then iterate through the list and create an event listener for each node reference:
+
+const button = document.querySelectorAll('button'); 
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => alert(button.id);});
+});
+
+#####################################################################
+
+Knowledge Check: 
+
+What is the DOM?
+- Document Object Model, a tree like representation of web page elements
+
+How do you target the nodes you want to work with?
+- Using JS selector methods such as document.querySelector();
+
+How do you create an element in the DOM?
+- document.createElement();
+
+How do you add an element to the DOM?
+- parentNode.appendChild(childNode); or parentNode.insertBefore(newNode, referenceNode);
+
+How do you remove an element from the DOM?
+- parentNode.removeChild(child);
+
+How can you alter an element in the DOM?
+- We first get a reference to the node and then we can set styles using .style.color, we can set IDs using .setAttribute('id', 'exampleID'); and we can add classes using .classList.add etc.
+
+When adding text to a DOM element, should you use textContent or innerHTML? Why?
+- textContent for adding text, innerHTML can open up security issues if not used carefully
+
+Where should you include your JavaScript tag in your HTML file when working with DOM nodes?
+- In the <script> tags in the footer or in the <head> tag but with the refer keyword
+
+How do “events” and “listeners” work?
+- We set up JavaScript code to listen on certain elements for specific events 
+
+What are three ways to use events in your code?
+- Inside HTML using attributes, using the .on_event syntax in JS or using Event Listeners
+
+Why are event listeners the preferred way to handle events?
+- Cleaner and we can create multiple events for the same listener
+
+What are the benefits of using named functions in your listeners?
+- We can reuse the named function in other listeners
+
+How do you attach listeners to groups of nodes?
+- Use the querySelectorAll() method to get a nodelist and then iterate through the nodelist using the .forEach() method
+
+What is the difference between the return values of querySelector and querySelectorAll?
+- querySelector is the first reference that matches the selector, querySelectorAll is all the references that match the selector
+
+What does a “nodelist” contain?
+- References to elements 
+
+Explain the difference between “capture” and “bubbling”.
+- Bubbling -> The browser triggers events up the DOM tree
+    - Only really a problem when we are listening to events on nested elements
+- The browser first does a capture:
+    - When we click on an element, the browser ripples down to find the specific element we've targeted
+    - It then bubbles up and triggers the event as we go up
+- We can edit our Event Listener to get the event to fire on the capture down: 
+
+const divs = document.querySelector('div'); 
+
+function logText(e){
+    console.log(this.classList.value); 
+}
+
+divs.forEach(div => div.addEventListener('click', logText, {
+    capture: true
+}));
+
+- We can also stop the event from propagating which stops the bubble up (or the capture down if the capture boolean is set to true): 
+
+function logText(e){
+    console.log(this.classList.value); 
+    e.stopPropogation(); // stop bubbling
+}
+
+- There is also an option called once: 
+
+divs.forEach(div => div.addEventListener('click', logText, {
+    once: true
+}));
+
+- Listens for a click once and will not run again until we reload the page

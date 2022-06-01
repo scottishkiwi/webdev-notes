@@ -1,0 +1,24 @@
+- Branches allow our repositories to hold multiple version of our files at the same time
+- We default to the main/master branch when we start a new project and make a first commit
+- Branches stem off the main branch and we can make commits that only exist on that branch, leaving the other branches untouched
+- We can then leave the main branch as a place for finished features that you know are working properly
+
+git branch <branch_name> // create new branch
+git checkout <branch_name> // change to new branch
+
+git checkout -b <branch_name> // creates a new branch and switches to it
+
+- Once the feature branch work is complete we need to merge it with the main branch
+
+git merge <branch_name> // takes the changes in branch_name ad adds them to the branch we're currently on
+
+- Sometimes we will get merge conflicts, when the same lines in a file have been changed on two different branches
+    - We have to resolve the merge conflict
+
+git branch -d <branch_name> // deletes a branch (if its already been merged into main)
+git branch -D <branch_name> // deletes a branch (if it hasn't been merged into main)
+
+- Branches also are useful for sharing code that we don't intent to commit to a main branch
+    - A bug in a new feature is causing code to break and you don't want to commit broken code to the project
+    - Create a temp branch, commit the current code and push to that branch
+    - Coworkers can now select your branch and review your code
