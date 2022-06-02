@@ -1,0 +1,255 @@
+Objects:
+
+- Some Data types are called primitive because their value contains only a single thing
+- Objects are used to store keyed collections of various data 
+- An object can be created with brackets {...} with an optional list of properties 
+    - A declaration with the brackets {..} is called an object literal
+    - A property is a key:value pair, key is a property name and value is anything
+
+Two syntaxes: 
+
+let user = new Object(); // object constructor syntax
+let user = {}; // object literal syntax
+
+let user = {
+    name: "John",
+    age: 30
+};
+
+- User object has two properties, a name and an age
+- The last property in the list may end with a comma for convenience when creating large objects
+- We can access the property values using the dot notation: 
+
+alert(user.name); 
+
+- We can add a property to the user object: 
+
+user.isAdmin = true; // boolean type
+
+Objects as object properties: 
+
+- An object property can itself be an object:
+
+person = {
+    name: {
+        first: "Bob",
+        last: "Smith",
+    },
+    age: 32
+}
+
+- This data can be access using dot notation like so: 
+
+person.name.first;
+person.name.last
+
+
+Square brackets: 
+
+- If we have multiword properties the dot notation for accessing the value does not work e.g
+
+let user = {
+    "likes birds": true // Must use quotes for multiword properties
+};
+
+user.likes birds = true; // does not work
+
+- For this case we use the alternative square bracket notation:
+
+user["likes birds"] = true;
+alert(user["likes birds"]); 
+
+- We can also use square brackets when working with nested objects: 
+
+person['name']['first'];
+
+-This looks very similar to how you access the items in an array, and it is basically the same thing:
+    - instead of using an index number to select an item, you are using the name associated with each member's value
+
+- Square brackets also provides a way to obtain the property name as the result of an expression, as opposed to a literal string: 
+
+let key = "likes birds";
+
+user[key] = true; 
+user.key = true; // does not work, this looks for the key property in the user objects
+
+
+Computer properties: 
+
+- Can use square brackets in an object literal when creating an object:
+
+let fruit = prompt('what fruit?'); 
+
+let bag = {
+    [fruit]: 5,
+};
+
+- We can use more complex expressions inside square brackets: 
+
+let fruit = 'apple';
+let bag = {
+    [fruit + 'Computers']: 5, // bag.appleComputers = 5
+};
+
+- Square brackets are more powerful than dot notation but they are also more cumbersome to write
+    - When property names are known and simple, the dot is used
+
+
+Property value shorthand: 
+
+- We often use existing variables as value for property names: 
+
+function makeUser(name, age) {
+    return {
+        name: name,
+        age: age,
+        // ...other properties
+    };
+}
+
+- We can see here that the parameters of the function and the property names are the same.
+    - This allows us to use the following shorthand: 
+
+function makeUser(name, age) {
+    return {
+        name,
+        age,
+        // ...other properties
+    };
+}
+
+
+Property names limitations: 
+
+- There are no real limitations on property names compared to variable names (where for, if, return are all banned)
+- There is a minor gotcha when trying to use a special property name __proto__  
+    - This cannot be set to a non-object value
+
+
+Property existence test using "in":
+
+- A notable feature of JS objects is that its possible to access any property and there wil be no error if the property doesn't exist 
+    - It just returns undefined making it easy to test for property existence: 
+
+let user = {};
+alert(user.madeUpProperty === undefined); // true
+
+- There is also a special operator 'in': 
+
+syntax: "key" in object
+
+let user = {name: 'John', age: 30};
+alert("age" in user); //true
+
+- We can also use a variable:
+
+let key = "age";
+alert(key in user); 
+
+- So what is the point of 'in' if we can just test for undefined? 
+    - Niche case where a property can exist in an object and the properties value is set to undefined
+    - If we check for undefined, it will say true but the property does actually exist
+
+
+Iterating through objects: 
+
+- The for..in loop allows us to iterate over all keys of an object
+
+let user = {name: 'John', age: 30};
+for (let key in user){// key is the property name
+    
+    alert(user[key]); // gives us the values for the keys
+}
+
+- Could use any variable here but key is standard, there is wide use of: for (let prop in obj)
+
+
+Ordering of object values: 
+
+- Keys with integer properties are sorted, others appear in the order created in the object
+    - Keys with integer properties mean a string that can be converted to and from an integer 
+    - Can avoid this behavior by always using non-integer keys 
+
+
+What is "this"?
+
+- The this keyword refers to the current object the code is being written inside:
+
+const person1 = {
+    name: 'Chris',
+    introduceSelf() {
+        console.log(`Hi! I'm ${this.name}.`);
+    }
+}
+
+const person2 = {
+    name: 'Deepti',
+    introduceSelf() {
+        console.log(`Hi! I'm ${this.name}.`);
+    }
+}
+
+- 'this' enables us to use the same method definition for every object we create
+- The above example shows that the object name will be return depending on whether the introduceSelf() method is called on person1 or person2
+    - This looks weird when writing the object literals out by hand, but is essential when we start using constructors
+
+
+Introducing constructors: 
+
+- What do we do when we need to create many instances of an object
+- One option is a function that creates an object: 
+
+function createPerson(name){
+    const obj = {};
+    obj.name = name; 
+    obj.introduceSelf = function(){
+        console.log(`Hi I'm ${this.name}.`);
+    }
+    return obj;
+}
+
+- Now we can create as many person objects as well like: 
+
+const frankie = createPerson('frankie'); 
+
+- We can avoid needing to create an empty object, initialize it and return it
+    - Introducing constructors
+
+- Constructors start with a capital letter and are named for the type of object they create:
+
+function Person(name){
+    this.name = name; 
+    this.introduceSelf = function(){
+        console.log(`Hi I'm ${this.name}.`);
+    }
+}
+
+- We call the Person() constructor using the new keyword:
+
+const frankie = new Person('frankie'); 
+
+
+We've been using objects all along: 
+
+- Any example using a built-in browser methods or JS objects have been us working with objects:
+
+myString.split(',');
+
+- The .split() method is a property of a String object
+- String objects have several common methods and properties available
+
+const myDiv = document.createElement('div'); 
+
+- This is a method from the Document object
+    - When a webpage loads an instance of a Document is created called 'document' which gives us several common methods and properties that come with the Document object
+
+
+Knowledge Check: 
+
+What is the difference between objects and arrays?
+- Arrays store values that are associated with and referenced by and index
+- Objects store key-value pairs and we use the key to reference the value
+
+How do you access object properties?
+- Using either the dot notation: object.property, or the square bracket notation: object[property];
+    - The latter allows us to use multiword property names 

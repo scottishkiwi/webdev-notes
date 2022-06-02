@@ -130,13 +130,17 @@ function alertFunction() {
   alert("YAY! YOU DID IT!");
 }
 
-<button onclick="alertFunction()">CLICK ME BABY</button> // method 1
+<button onclick="alertFunction()">CLICK ME</button> // method 1
 
 btn.onclick = alertFunction; // method 2
 
 btn.addEventListener('click', alertFunction); // method 3
 
 - This can be cleaner and is definitely a good idea if the function is going to be used in multiple places
+
+NOTE:
+- With parentheses the method is invoked because of the parentheses, and the result of that invocation will be stored in before_add.
+- Without the parentheses you store a reference (or "pointer" if you will) to the function in the variable. That way it will be invoked whenever someone invokes before_add().
 
 What is e?
 

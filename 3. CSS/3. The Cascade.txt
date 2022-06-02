@@ -84,7 +84,7 @@ h1 {
 
 Inheritance: 
 
-- Certain CSS properties are inherited by element's decedents, even if not written explicitly for the child e.g container elemet has a color applied that applies to the container contents elements
+- Certain CSS properties are inherited by element's decedents, even if not written explicitly for the child e.g container element has a color applied that applies to the container contents elements
 - Typography based properties are usually inherited
 - Inheritance is overwritten if targeted specifically e.g:
 
