@@ -72,8 +72,8 @@ for(let i = 0; i < fruits.length; i++){
 
 const fruits = ["Banana", "Orange", "Apple", "Mango"];
 let currentFruit;
-fruits.forEach(function(){
-    currentFruit = fruits[i];
+fruits.forEach(function(fruit){
+    currentFruit = fruit;
 })
 
 

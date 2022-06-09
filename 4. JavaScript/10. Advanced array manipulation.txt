@@ -1,0 +1,104 @@
+Array methods: 
+
+1. Array.prototype.filter();
+
+- accepts a function and loops over every single item in the array and give us the element
+- for each element, we decide if we want to keep it or not based on a filter criteria 
+
+e.g 
+
+const fifteen = inventors.filter(function(inventor){
+    if(inventor.year >= 1500){
+        return true; 
+    }
+})
+
+- No need to return false
+- We can refine the filter into an arrow function: 
+
+const fifteen = inventors.filter((inventor) => return inventor.year >= 1500);
+
+2. Array.prototype.map()
+
+- takes in an array, does something to do the array and returns a new array (always of the same length)
+
+e.g
+
+const fullNames = inventors.map(inventor => return `${inventor.first} ${inventor.second}`);
+
+3. Array.prototype.sort()
+
+- sort by a criteria by retuning 1 or -1 based on the order the two elements should be 
+
+const ordered = inventors.sort(function(a, b){
+    if(a.year > b.year){
+        return 1;
+    }else{
+        return -1;
+    }
+})
+
+or: 
+
+const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1;
+
+4. Array.prototype.reduce()
+
+- executes a reducer callback function for each array element
+- it returns a single value, the functions accumulated result
+- classic use case is totalling up some value based on all the array elements:
+
+const totalYears = inventors.reduce((total, inventor) => return total + (inventory.passed - inventor.year), 0);
+
+NOTE: We can chain these methods together: 
+
+const links = Array.from(category.querySelectorAll('a'));
+const filtered = links
+                    .map(link => link.textContent)
+                    .filter(streetName => streetName.includes('de'));
+
+5. Array.prototype.some()
+
+- checks if at least one thing in your array meets criteria
+
+const isAdult = people.some( person => {
+    const currentYear = new Date().getFullYear(); 
+    return currentYear - person.year >= 18;
+});
+
+6. Array.prototype.every()
+
+- checks if every element in your array meets criteria: 
+
+const allAdults = people.every( person => {
+    const currentYear = new Date().getFullYear(); 
+    return currentYear - person.year >= 18;
+});
+
+7. Array.prototype.find()
+
+- kind of like filter except it returns the first element it finds that meets criteria, rather than an array of all elements that meet the criteria: 
+
+const comment = comments.find(comment => comment.id === 3213); 
+
+8. Array.prototype.findIndex()
+
+- like find() except it gives us the index of the first element that meets the criteria: 
+
+const index = comments.findIndex(comment => comment.id === 3213);
+// then delete the element
+comments.splice(index,1); // this modifies the original array
+OR:
+const newComments = [ // more popular in redux world (due to creating a new array rather than modifying the original array)
+    ...comments.slice(0, index),
+    ...comments.slice(index + 1)
+]
+
+Knowledge check: 
+
+What is Array.prototype.map() useful for?
+- Useful for mapping some property from each element in the original array as a new element in a new array
+- The returned array will be the same length 
+
+What is Array.prototype.reduce() useful for?
+- Performing an operation based on values inside every element in an array e.g summing up the total of some property

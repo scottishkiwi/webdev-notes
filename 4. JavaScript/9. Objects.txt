@@ -247,9 +247,10 @@ const myDiv = document.createElement('div');
 Knowledge Check: 
 
 What is the difference between objects and arrays?
-- Arrays store values that are associated with and referenced by and index
+- Arrays store values that are associated with and referenced by an index
 - Objects store key-value pairs and we use the key to reference the value
 
 How do you access object properties?
 - Using either the dot notation: object.property, or the square bracket notation: object[property];
     - The latter allows us to use multiword property names 
+- Also using the for..in loop
