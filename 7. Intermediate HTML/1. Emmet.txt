@@ -1,0 +1,141 @@
+Emmet: 
+
+- Emmet is a VS code plugin that helps HTML and CSS be written more efficiently by providing lots of clever shortcuts
+- Generally speaking, we can use CSS style selectors as shortcuts language to create HTML
+
+Boilerplate: 
+
+- Opening up an empty html file and entering ! will trigger Emmet suggestions
+    - Pressing enter will create an HTML boilerplate
+
+
+Adding elements: 
+
+- We can simply type the name of the element and click enter for opening and closing HTMl tags to be created
+
+
+Adding elements with classes and IDs: 
+
+- Simply type the element name with the class name attached via a .
+
+e.g span.purple (click enter) -> <span class="purple"></span>
+span#if (click enter) -> <span id="id"></span>
+
+- If we don't specify an element type, it will assume that we are wanting a div 
+
+e.g .purple (click enter) -> <div class="purple"></div>
+
+
+Adding attributes: 
+
+button[type="button"] (click enter) -> <button type="button"></button>
+[data-selected] (click enter) -> <div data-selected=""></div>
+[data-selected].active (click enter) -> <div data-selected="" class="active"></div>
+
+
+Creating children elements: 
+
+div.purple>span.cyan (click enter) -> <div class="purple"><span class="cyan"></span></div>
+header>nav>ul>li*3 (click enter) -> 
+<header>
+    <nav>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </nav>
+</header>
+
+
+Adding text inside the elements: 
+
+header>nav>ul>li*3{example text} (click enter) -> 
+<header>
+    <nav>
+        <ul>
+            <li>example text</li>
+            <li>example text</li>
+            <li>example text</li>
+        </ul>
+    </nav>
+</header>
+
+- We can use the $ to use incremented numbers:
+
+header>nav>ul>li*3{List Item $}  (click enter) ->
+<header>
+    <nav>
+        <ul>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3</li>
+        </ul>
+    </nav>
+</header>
+
+- We can also use the $ in classnames: 
+
+header>nav>ul>li*3.class-$ (click enter) ->
+<header>
+    <nav>
+        <ul>
+            <li class="class-1"></li>
+            <li class="class-2"></li>
+            <li class="class-3"></li>
+        </ul>
+    </nav>
+</header>
+
+
+Creating sibling elements: (plus symbols in CSS are used for siblings)
+
+header+main+footer (click enter) -> 
+<header></header>
+<main></main>
+<footer></footer>
+
+(header>nav)+main+footer (click enter) -> 
+<header>
+    <nav></nav>
+</header>
+<main></main>
+<footer></footer>
+
+
+More complete emmet shortcuts:
+
+(header>h2{Heading}+nav>ol>li*5>a{Link $})+main+footer click enter) -> 
+
+<header>
+    <h2>Heading</h2>
+    <nav>
+        <ol>
+            <li><a href="">Link 1</a></li>
+            <li><a href="">Link 2</a></li>
+            <li><a href="">Link 3</a></li>
+            <li><a href="">Link 4</a></li>
+            <li><a href="">Link 5</a></li>
+        </ol>
+    </nav>
+</header>
+<main></main>
+<footer></footer>
+
+
+Knowledge check: 
+
+Why should you use Emmet?
+- Makes writing HTML more efficient 
+
+What are some useful Emmet abbreviations?
+- ! for boilerplate, also just being able to use the wide range of CSS selectors to create HTML with classes, IDS, attributes
+
+What syntax would you use to create this element <p class="text"></p>?
+- p.text
+
+What syntax expands to an element with a child element inside of it? For example: <div><p></p></div>
+- div>p
+
+What syntax would you use to create three elements that have the same class name?
+- div*3.class-name

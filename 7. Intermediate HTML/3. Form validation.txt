@@ -1,0 +1,75 @@
+Form Validation: 
+
+- Allows us to set constraints or rules that determine what data users can enter into an input
+- Help protect our backend systems from receiving incorrect data 
+- Help users enter correct information and keep the UX simply 
+
+Required Validation: 
+
+- Specific fields which must be filled out before submitting a form
+- Add the required attribute to the input element
+- Should always indicate to the user that certain fields are required with an asterix
+
+Text Length Validation: 
+
+- Set a minimum or maximum amount of text that can be entered into a field
+- To add min length restriction give the input/textarea element a minlength attribute with an integer value
+- To add max length restriction give the input/textarea element a maxlength attribute with an integer value
+
+<form action="#" method="get">
+  <div>
+    <textarea placeholder="What's happening?" minlength="5" maxlength="20"></textarea>
+  </div>
+  <button type="submit">Tweet</button>
+</form>
+
+Number Range Validations: 
+
+- Controls the range of values users can enter into a form
+- To add min numeric value restriction we give the input element a min attribute with an integer value
+- To add max numeric value restriction we give the input element a max attribute with an integer value
+
+Pattern Validations: 
+
+- Ensures data matches a particular pattern e.g postcode, credit card number 
+- Add a pattern attribute to the input element and provide a regex value that matches the desired pattern
+- Always good to provide a placeholder here so that users know how the data should be entered to meet the pattern\
+
+Styling Validations: 
+
+- We can target form controls that have passed or failed validation can use the :valid or :invalid pseudo CSS classes
+- We can then make it obvious to the user that their data has failed to verify in the form and needs to be entered again
+    - We can also then hide/show validation error messages based on these psuedo classes
+
+input:invalid {
+    border-color: red;
+}
+
+input:valid {
+    border-color: green;
+}
+
+Conclusion: 
+
+- The built-in validations ultimately can't handle every case and they have their limitations
+- We can create custom validation using JS
+- We can also ensure that server-side validation is in place to protect our system from incorrect data
+
+#####################################################################
+
+Knowledge Check: 
+
+What does the required validation do?
+- Ensure the input has a value before the form can be submitted successfully
+
+What validations can you use for checking text length?
+- minlength and maxlength attributes with integer value
+
+How can you validate the minimum and maximum of numeric inputs?
+- min and max attributes with integer value
+
+What can you use the pattern validation for?
+- To ensure the value entered into an input matches a pattern for things like postcodes and credit card numbers
+
+What pseudo css selectors are available for styling valid and invalid inputs?
+- :valid and :invalid

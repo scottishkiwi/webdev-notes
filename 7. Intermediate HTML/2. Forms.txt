@@ -1,0 +1,220 @@
+Form Basics:
+
+- The form element is a container element that wraps all of the inputs a user will interact with on a form
+- Two essential attributes: 
+    - action - takes a URL value that tells the form where it should send its data to be processed
+    - method - which HTTP request method it should use to submit the form, usually GET or POST
+
+GET -> when we want to retrieve information from a server e.g a search engine request is a GET request
+POST -> when we need to change something on the server e.g when a user makes an account or makes a payment
+
+Form markup: 
+
+<form action="example.com/path" method="post">
+
+</form>
+
+Form controls: 
+
+- These are the elements that the users with interact with on a form
+    - textboxes, dropdowns, checkboxes, buttons
+
+#####################################################################
+
+The Input element: 
+
+- The most versatile form control element
+- It accepts a type attribute which tells the browser what type of data it should expect and how it should render the input element
+
+<input type="text">
+
+- This input accepts any text
+
+Labels:
+
+- We can provide labels on inputs to inform users what type of data they are expected to enter
+
+<label for="firstName">First Name:</label>
+<input type="text" if="firstName">
+
+- Labels accept a for attribute which associates it with a particular input using the input elements ID
+- When a label associated with an input is clicked, it will focus the cursor on that input 
+
+Placeholder attribute:
+
+- Attribute on form control elements that is used to provide placeholder text e.g example text for the input           
+
+Name attribute: 
+
+- Attribute on form control elements that serves as a reference to the data inputted into a form control element 
+- Basically a variable name for a particular input that we can use in the backend to reference the input value 
+
+Email Input: 
+
+- Specialized text inputs for only email addresses
+    - Will display different keyboards on mobile
+    - Also validates the value entered in the input is definitely an email addresses
+
+<input type="email" name="email" id="user_email">
+
+Password Input: 
+
+- Specialized text input for only passwords
+    - Inputted data has asteriks 
+
+<input type="password" name="password">
+
+Number Input: 
+
+- Only accepts number values
+
+Date Input: 
+
+- Provides a better UX for choosing dates by rendering a calendar
+
+Text Area: 
+
+- Text input field that spans multiple lines
+- Can be resized by clicking and dragging the bottom right corner
+- Accept rows and cols attributes that control the initial height (rows) and width (cols) of the textarea
+
+<textarea rows="20" cols="60"></textarea>
+
+- NOTE: this does have a closing tag, unlike input elements
+
+#####################################################################
+
+Selection Elements:
+
+- Used when users select a value from a predefined list
+
+Dropdown: 
+
+- Renders a dropdown list where users can select an option 
+- Similar markup to lists where options are nested inside the select element
+
+<select name="car">
+    <option value="mercedes">Mercedes</option>
+    <option value="tesla">Tesla</option>
+    <option value="volvo">Volvo</option>
+</select>
+
+- All the options need a value attribute which is used in the code to reference the value selected
+- By adding the selected keyword to one option, this option will be the default selected
+
+Radio Buttons: 
+
+- For when there is a smaller list of options, it is often a better UX to have them displayed with radio buttons
+    - Radio buttons ensure that only one option can be picked by setting the name value for each radio button to the same value
+- Created using the input element with the type set to "radio"
+
+<div>
+    <input type="radio" id="child" name="ticket_type" value="child">
+    <label for="child">Child</label>
+
+    <input type="radio" id="adult" name="ticket_type" value="adult">
+    <label for="adult">Adult</label>
+
+    <input type="radio" id="senior" name="ticket_type" value="senior">
+    <label for="senior">Senior</label>
+</div>
+
+- When a user selects a radio button, any previously selected radio button in the group will be deselected
+- We can use the checked keyword to one input to be the default selected radio button
+
+Checkboxes: 
+
+- Similar to radio buttons but allow multiple selections
+- Created using the input element with the type set to "checkbox"
+
+<div>
+    <input type="checkbox" id="onions" name="topping" value="onions">
+    <label for="onions">Onions</label>
+
+    <input type="checkbox" id="pepperoni" name="topping" value="pepperoni">
+    <label for="pepperoni">Pepperoni</label>
+
+    <input type="checkbox" id="mushrooms" name="topping" value="mushrooms">
+    <label for="mushrooms">Mushrooms</label>
+</div>
+
+Buttons: 
+
+- Clickable button that we can use to submit forms or trigger other actions (using JS)
+- We use the button element: 
+
+<button>Click me</button> 
+
+- There are 3 values we can use for the type attribute: 
+
+1) type="submit" for the end of a form. Using this type with a button contained inside a form element will submit the form 
+
+2) type="reset" to reset all data in a form and sets inputs back to their initial statement
+
+3) type="button" for a generic button that can be used for anything. Used with JS to create interactive UIs.
+
+#####################################################################
+
+Organising form elements: 
+
+- In larger forms, users can get overwhelmed if there are too many inputs to fill in
+- We can organise forms into sections that are easier to work with
+
+Fieldset Element: 
+
+- Container element to group related form inputs into a logical unit
+
+<fieldset>
+    <label for="first_name">First Name</label>
+    <input type="text" id="first_name" name="first_name">
+    <label for="last_name">Last Name</label>
+    <input type="text" id="last_name" name="last_name">
+</fieldset>
+
+Legend: 
+
+- Used to give a field set a heading or caption that explains the grouping of inputs
+
+<fieldset>
+
+    <legend>Contact Details</legend>
+
+    <label for="first_name">First Name</label>
+    <input type="text" id="first_name" name="first_name">
+    <label for="last_name">Last Name</label>
+    <input type="text" id="last_name" name="last_name">
+</fieldset>
+
+- A common use case with these types of elements is to use a fieldset to group radio buttons and use a legend to explain what the options are for 
+
+
+
+Styling forms: 
+
+- Each browser has its own default styles for form controls and to have consistent designs among all browsers, we have to override the default styles
+- Text-based form controls are easy to override and style
+    - Things get tricker with custom styles for radio buttons, checkboxes, calendars
+
+#####################################################################
+
+Knowledge Check: 
+
+Explain what the form element is for and what two attributes it should always include.
+- The form element is used to group various input elements that we can use to create a form
+- The element should always include action (where the data is being processed) and method (what type of HTTP request method the form is using)
+
+Explain what form controls are at a high level.
+- These are all the elements that allow users to interact with a form
+
+What is the name attribute for?
+- Used to name and provide a reference for the value of the input
+- Used in JS regularly to access a user submitted value
+
+What are the three most common form controls you can use for allowing users to select predefined options?
+- Select dropdown, radio buttons and checkboxes
+
+What are the three types of buttons in HTML?
+- The type attribute of a button element can be set to submit, reset or button
+
+What are the two most challenging aspects of styling forms?
+- Overriding default browser styles and writing styling for certain elements like checkboxes, radio buttons and calendars
