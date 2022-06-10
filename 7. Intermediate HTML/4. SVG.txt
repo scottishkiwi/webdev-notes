@@ -45,6 +45,7 @@ Embedding SVGs:
     - This makes the SVGs properties visible to the code so we can alter it with CSS or JS
     - Makes code harder to read and page less cacheable. 
 
+#####################################################################
 
 Knowledge check: 
 

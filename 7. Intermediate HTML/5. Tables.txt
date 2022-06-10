@@ -1,0 +1,92 @@
+Tables: 
+
+- Some data just really needs to be in a table 
+- HTML tables are a less common element when compared with buttons, links, lists but they are the perfect tool in some cases 
+
+- The point of a table is to be rigid 
+- Information should be easily interpreted by making visual association between row and column headers
+- When implemented correctly, tables are handled well by accessibility tools such as screen readers
+
+When should we NOT use HTML tables?
+
+- Should only be used for tabular data 
+- Should never be used to layout a webpage instead of CSS techniques: 
+    - Reduces accessibility
+    - Tables produce tag soup (complex markup structure)
+    - Not responsive without CSS 
+
+Table elements: 
+
+- Every table is enclosed by the table tag <table></table>
+- The smallest container inside a table is a table cell <td></td> (table data)
+    - If we wanted a row of four cells: 
+
+<td>Hi, I'm your first cell.</td>
+<td>I'm your second cell.</td>
+<td>I'm your third cell.</td>
+<td>I'm your fourth cell.</td>
+
+- To specify that these 4 cells are part of one row, we use <tr></tr> (table row)
+
+<tr>
+    <td>Hi, I'm your first cell.</td>
+    <td>I'm your second cell.</td>
+    <td>I'm your third cell.</td>
+    <td>I'm your fourth cell.</td>
+</tr>
+
+- To recognize a table header as proper headers we need to use <th></th> (table header)
+- Sits inside a <tr> but specifically denotes a row header rather than a normal cell
+
+Allowing cells to span multiple rows/columns: 
+
+- <th> and <td> can use the colspan or rowspan attribute 
+    - Both accept a number value which equals the number of rows or columns we want the cell/header to span
+
+Styling columns made easier: 
+
+- It can be annoying to specify styling on columns (need to end up using :nth-child selectors)
+- Can use a <col> element to specify inline styles once
+    - <col> elements sit inside <colgroup> element which sits just below the opening <table> tag
+
+<table>
+    <colgroup>
+        <col>
+        <col style="background-color: yellow">
+    </colgroup>
+    <tr>
+        <th>Data 1</th>
+        <th>Data 2</th>
+    </tr>
+    <tr>
+        <td>Calcutta</td>
+        <td>Orange</td>
+    </tr>
+    <tr>
+        <td>Robots</td>
+        <td>Jazz</td>
+    </tr>
+</table>
+
+- The above creates styling for two different columns, the first is un-styled and the second has a yellow background
+- Can also use the span attribute to make the <col> style span more than one column: 
+
+<colgroup>
+    <col style="background-color: yellow" span="2">
+</colgroup>
+
+#####################################################################
+
+Knowledge Check: 
+
+What is a table?
+- Structure for displaying tabular data
+
+Why is it a bad idea to use HTML Tables for page layout?
+- Bad for accessibility, hard to style due to table quirks, lots of markup soup
+
+What are caption elements useful for?
+- Contains a brief description of the table contents 
+
+What is the scope attribute?
+- Attribute on <th> elements that allow us to specify whether the header is for the row it is in, or the column
