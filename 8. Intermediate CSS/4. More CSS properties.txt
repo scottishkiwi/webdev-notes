@@ -1,0 +1,48 @@
+Background: 
+
+- background is actually a shorthand property for 8 different background related properties
+    - Background color, background images, position and size of the images, how the images repeat if they are too small
+- We can also set these properties individually which might be easier and more clear than trying to use the shorthand 
+    - This is in comparison to some properties where it is almost always better to use shorthand (flex, margin, padding etc.)
+
+Borders: 
+
+- border is another shorthand that defines a border's size, style and color
+- border-radius creates rounded corners on things
+
+Box-shadow:
+
+- box-shadow adds a shadow effect around an element
+- Creates a sense of depth on the page and provides subtle separation 
+    - Best when used sparingly
+
+Overflow: 
+
+- overflow defines what happens when an element's content is too big to fit
+- Common usage is to add scrollbars 
+
+Opacity: 
+
+- opacity defines the opacity of an element 
+
+#####################################################################
+
+Knowledge Check: 
+
+Which property would you use to make an element transparent?
+- opacity
+
+Which property would you use to make a background image tile?
+- background or background-image
+
+Which property would you use to add scrollbars to an element?
+- overflow
+
+Which property would you use to add a shadow behind an element?
+- box-shadow
+
+Which property would you use to create rounded corners on an element?
+- border-radius
+
+How would you use border-radius to make a circular element?
+- Set border-radius to 100%

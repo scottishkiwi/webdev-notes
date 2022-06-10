@@ -1,0 +1,158 @@
+Parent and Sibling Combinators: 
+
+- We can access different elements without referring to their classes using: 
+
+> the child combinator
++ the adjacent sibling combinator
+~ the general sibling combinator 
+
+Example:
+
+<main class="parent">
+    <div class="child group1">
+        <div class="grand-child group1"></div>
+    </div>
+    <div class="child group2">
+        <div class="grand-child group2"></div>
+    </div>
+    <div class="child group3">
+        <div class="grand-child group3"></div>
+    </div>
+</main>
+
+main > div {
+    // Selects the divs with a class of child
+}
+
+main > div > div{
+    // Selects only the divs with a class of grand-child
+}
+
+.group1 + div{
+    // Selects only the div with the class group2
+}
+
+.group1 ~ div{
+    // Selects all of group1s siblings
+}
+
+NOTE: just like the descendant combinator (.class .class{}) these selectors do not affect their specificity score
+
+#####################################################################
+
+Pseudo-selectors: 
+
+- Pseudo-class selectors are prefixed with a single colon
+    - A different way to target elements that exist in the HTML
+- Pseudo-elements are prefixed with two colons 
+    - Targets elements that don't normally exist in the markup
+
+
+Pseudo-classes:
+
+- Some of these pseudo classes are based on position, state, how the user is currently interacting with the element 
+
+User action related:
+
+:focus -> applies to an element that is currently selected 
+
+:hover -> applies to an element that is currently under the user's mouse pointer
+
+:active -> applies to an element that is currently being clicked
+
+:visited -> applies to all elements that the user has already clicked on
+
+Structure related: 
+
+:root -> special class that represents the top level of the HTML document. this is usually the html element
+
+:first-child, :last-child -> match elements that are the first or last sibling 
+
+:empty -> matches elements with no children at all
+
+:nth-child(n) -> selects the nth child element of an element 
+
+
+Pseudo-elements:
+
+- Allow us to affect parts of our HTML that aren't elements at all
+
+::marker -> customize the styling of <li> elements' bullets or numbers
+
+::first-letter or ::first-line -> customize the first letter or first line of some text
+
+::selection -> customize the highlighting when a user selects text on a page 
+
+::before and ::after -> add extra elements onto the page with CSS, instead of HTML
+
+#####################################################################
+
+Attribute Selectors: 
+
+- An attribute is anything in the opening tag of an HTML element e.g src, href etc.
+
+[attribute] -> generic selector will select anything where the given attribute exists
+
+selector[attribute] -> we can combine attribute selectors with other types of selectors 
+
+[attribute="value"] -> selects anything where the given attribute exists and the value matches  
+
+- Sometimes we need to be more general in how we access these attributes
+    - Maybe we're only interested in img elements whjere the src value ends in .jpg
+- We can use regex with the attribute selectors: 
+
+[attribute^="value"] -> Using ^= will match strings from the start
+
+[attribute$="value"] -> Using $= will match strings from the end
+
+[attribute*="value"] -> Using *= wildcard selector will match anywhere inside the string
+
+[class^='aus'] {
+    /* Classes are attributes too!
+        This will target any class that begins with 'aus':
+        class='austria'
+        class='australia'
+    */
+}
+[src$='.jpg'] {
+    /* This will target any src attribute that ends in '.jpg':
+    src='puppy.jpg'
+    src='kitten.jpg'
+    */
+}
+[for*='ill'] {
+    /* This will target any for attribute that has 'ill' anywhere inside it:
+    for="bill"
+    for="jill"
+    for="silly"
+    for="ill"
+    */
+}
+
+#####################################################################
+
+Knowledge Check: 
+
+What is the difference between the child combinator and the descendant combinator?
+- The descendant combinator selects from all child elements, the child combinator selects from only direct children elements
+
+How does the syntax of pseudo-classes and pseudo-elements differ?
+- Single colon for classes, double colons for elements
+
+Do pseudo-classes exist somewhere in HTML? Do pseudo-elements?
+- The classes do, the elements do not 
+
+Name two ways you could select every second child of an element, starting with the first
+- element.nth-child(2n + 1) and element.nth-child(odd)
+
+What is the difference between div:first-child and div:last-child? What will each select?
+- The first will select the first child element of each div, the second will select the last child element of each div
+
+What selector would you use to style a button a user is currently hovering over? How about one that is currently being clicked on?
+- button:hover, button:active
+
+How could you select all input elements with a type of text?
+- input[type='text']
+
+How could you select all classes that begin with thunder ?
+- [class^='thunder']

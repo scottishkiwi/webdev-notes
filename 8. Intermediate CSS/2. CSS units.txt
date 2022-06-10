@@ -1,0 +1,40 @@
+Absolute units: 
+
+- Units that are always the same in any context
+- px is an absolute unit because the size of a pixel does not change relative to anything
+    - px is the ONLY absolute unit we should be using for web projects
+
+Relative units: 
+
+- Units that change based on their context 
+
+em and rem:
+
+- Both refer to font size, although are used to define other sizes in CSS 
+- 1em is the font-size of an element
+    - e.g if an elements font-size is 16px and we set the width: 4em; then the width would be 64px (4*16)
+- 1rem is the font-size of the root element (usually html)
+    - The math works the same as em but we don't have the complexity of keeping track of parents font-size 
+    - Using rem is recommended
+
+Viewport units (vh and vw):
+
+- Relate to the size of the viewport
+- Specifically, 1vh is 1% of the viewport height and 1vw is 1% of the viewport width
+- These can be useful when we need something to be sized relative to the viewport e.g full-height hero images or full-screen app interfaces
+
+#####################################################################
+
+Knowledge Check: 
+
+Why would you want to use em or rem for font-size instead of px?
+- em and rem are relative sizes so they scale with the size of a context (either the font-size of the root element or the font-size of the element)
+- Makes it easier to change one value and all values are scaled
+- Allows users to change their default font-size to improve readability 
+
+What are some instances where you might want to use vh and vw?
+- When working with images/banners/videos that we want to be full screen
+
+What are some instances where you might want to use px instead of a relative unit?
+- Sometimes using rem for things like padding, margin or borders scales too much along with the font 
+- Best to use rem for font-size to respect the user's settings but maybe easier to use px for margin and padding

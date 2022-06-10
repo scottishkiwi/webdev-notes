@@ -1,0 +1,72 @@
+Fonts: 
+
+- If we use the font-family property to change to a font and these fonts are not installed on the user's computer, then a fallback is used
+    - If no fallback has been defined, then the default HTML font will be used
+
+Online fonts: 
+
+- We can get fonts from online font libraries like Google Fonts, Font Library or Adobe Fonts 
+    - We go to their website, select a font and then copy a snippet to load the font from their server onto our website
+    - Alternatively, we'll use an @import tag that can be dropped at the top of a CSS file
+    - It is especially important to add a fallback font if we are loading fonts over an external API
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+or:
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+Downloaded fonts: 
+
+- We can also download the font from the web, load it into our project and define it at the top of our CSS file with the @font-face rule
+- There are multiple types of font file formats e.g .woff, .ttf
+- More reliable that loading fonts over a third-party API
+
+@font-face {
+  font-family: my-cool-font;
+  src: url(../fonts/the-font-file.woff);
+}
+
+#####################################################################
+
+Text Styles: 
+
+font-style:
+
+- Generally used for making font italic, when we don't need to use the <em> tag (significant/emphasized text)
+
+letter-spacing: 
+
+- Changes the space between letters in a word
+- Useful for adjusting custom fonts 
+
+line-height: 
+
+- Changes the space between lines in wrapped text
+
+text-transform: 
+
+- Changes the case of the given text
+
+text-shadow:
+
+- Adds a shadow around the text in the selected element
+- Best used sparingly but can used to great effect 
+
+#####################################################################
+
+What are the 2 ways to add fonts that are not installed on a user’s computer?
+- Get a snippet from a third-party website and include it in the HTML (using link) or CSS (using @import)
+- Download the font file and load it into our project. Include it in the CSS using @font-face custom rule with the font-family and src properties
+
+What is the ‘system font stack’ and why would you want to use it?
+- A stack of font families that try to use the default font of the user's system
+- It goes through each font until it fines one that is installed
+
+Which property would you use to increase or decrease the space between letters in a word?
+- letter-spacing
+
+Which property would you use to increase or decrease the space between lines in a paragraph?
+- line-height
