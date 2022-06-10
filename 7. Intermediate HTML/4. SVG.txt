@@ -1,0 +1,59 @@
+SVGs:
+
+- Powerful tool for creating high quality, dynamic images for websites and web apps
+
+What are SVGs?
+
+- Scalable image format, meaning they scale to any size and retain their quality with increasing file size
+- Allows modification of image through CSS and JS 
+- Used for: 
+    - Icons
+    - Graphs/Charts
+    - Large, simple images
+    - Backgrounds
+
+- SVG stands for Scalable Vector Graphic
+    - Image defined by maths rather than a grid with pixels
+        - Grid with pixels can't scale
+        - Vector graphics have no grid and instead use formulas for different shapes and lines
+        - Formulas can scale to any size without affecting image quality or size of file 
+- Defined using XML (extensible markup language)
+    - Makes it human-readable
+    - Made up of element tags, attributes
+    - XML is interoperable with HTML so we can just put the XML code into an HTML file with no changes
+
+Drawbacks: 
+
+- Great for relatively simple images but because every single detail in the image needs to be written as XML, it is inefficient at storing complex images
+
+Anatomy of SVG:
+
+- Unlikely to ever make an SVG from scratch
+- Download or copy the code from a website or image editor that can create SVGs
+- xmlns -> XML namespace, specifies the dialect of XML being used, needed to render the image correctly
+- viewBox -> defines the bounds of the SVG, also defines the aspect ration and the origin of the SVG 
+- class,id -> attributes just like normal HTML, can be targeted with CSS or JS
+- <circle>,<rect>,<path>,<text> -> basic SVG building blocks
+
+Embedding SVGs:
+
+1) Linking SVGs works basically the same way as linking any other image
+    - Using <img> or link it via CSS using background-image: url();
+        - Cleaner and simpler so preferred unless we need to tweak the SVG code 
+
+2) Inline the SVG by pasting their XML contents directly into the HTML
+    - This makes the SVGs properties visible to the code so we can alter it with CSS or JS
+    - Makes code harder to read and page less cacheable. 
+
+
+Knowledge check: 
+
+What is the xmlns attribute?
+- XML namespace attribute, defines dialect of XML, required to render the XML on the page
+
+What are some situations where you wouldn’t want to use SVG?
+- For large complex images with great detail
+
+What are the benefits of “inlining” your SVGs? What are the drawbacks?
+- Benefits -> Can edit the SVG dynamically using CSS or JS
+- Drawback -> Code is harder to read
