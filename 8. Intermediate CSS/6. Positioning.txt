@@ -1,0 +1,43 @@
+Static and Relative Positioning: 
+
+- position: static;
+    - The default position of every element
+    - The properties top, right, bottom and left do not affect the position of static elements
+- position: relative; 
+    - Pretty much the same as static but properties top, right, bottom and left displace the element relative to its normal position
+
+Absolute Positioning: 
+
+- position: absolute;
+    - Allows us to position something at an exact point on the screen without affecting other elements 
+    - The element will be removed from the normal document flow
+    - Elements are positioned anywhere on the screen using top, right, bottom and left
+    - Useful when we need to position something at an exact point e.g modals, icons 
+
+Fixed Positioning:
+
+- position: fixed; 
+    - Elements are also removed from the normal flow of document and are position relative to the viewport 
+    - Use top, right, bottom and left to position it and the element will stay there, even as the user scrolls 
+    - Used for things like nav bars and floating chat buttons 
+
+Sticky Positioning: 
+
+- position: sticky; 
+    - Elements act like normal elements until we scroll past them and then they behave like fixed elements 
+    - Used for section headings and sticky banners 
+
+#####################################################################
+
+Knowledge Check: 
+
+What is the difference between static and relative positioning?
+- Static is the default position of every element and the top, left, bottom and right properties don't work
+- Relative is pretty much the same but we can change the position relative to the elements normal position using the top, left, bottom and right properties 
+
+What is absolute positioning useful for?
+- Allows us to position something exactly on the screen, useful for modals
+
+What is the difference between fixed and sticky positioning?
+- Fixed elements are positioned relative to the viewport and never leave the screen
+- Sticky elements are normal elements until they are scrolled to, and then they become fixed

@@ -1,7 +1,0 @@
-Default Styles: 
-
-- Some elements already have style applied to them from the default styles that come with a browser
-- No guarantee that the browsers will act in the same way and inconsistencies do exist
-- In many cases we will overwriting most of this default styling to make our site look how we envision inconsistencies
-- Many developers will have a default CSS reset file that undoes browser defaults, or maybe even styles certain elements in a consistent way across all browsers 
-    - e.g Normalize.css 

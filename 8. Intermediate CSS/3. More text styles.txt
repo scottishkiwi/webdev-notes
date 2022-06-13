@@ -57,6 +57,8 @@ text-shadow:
 
 #####################################################################
 
+Knowledge Check: 
+
 What are the 2 ways to add fonts that are not installed on a user’s computer?
 - Get a snippet from a third-party website and include it in the HTML (using link) or CSS (using @import)
 - Download the font file and load it into our project. Include it in the CSS using @font-face custom rule with the font-family and src properties

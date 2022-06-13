@@ -1,0 +1,69 @@
+How are functions used in CSS? 
+
+color: rgb(0, 42, 255); 
+
+- color gets assigned the value returned from the rgb function(), which accepts arguments in the form of numbers
+- We cannot create our own functions in CSS
+    - These functions are pre-made and are there to help us with some common styling problems
+
+Some common functions: 
+
+calc(): 
+
+- Handles maths even when we used a variety of vh, rem and px units
+- Allows nesting of other calc functions as well
+- Can also accept other css variables in the functions 
+
+Example with CSS variables: 
+
+:root {
+	--header: 3rem;
+	--footer: 40px;
+	--main: calc(100vh - calc(var(--header) + var(--footer)));
+}
+
+- var() returns the value of the CSS variables
+
+min(): 
+
+- Chooses the minimum of the two values e.g
+
+.image{
+    width: min(150px, 100%); 
+}
+
+- If there is 150px available to the image, it will use 150px (as it is the smaller between 150px and 100%)
+- If there is less than 150px available, then 100% is the smaller value so the images width is 100% of the container 
+- The 150px is a guard value; the width will never be set to more than 150px
+
+max(): 
+
+- Same as min() but the reverse, it selects the largest possible value 
+
+.image{
+    width: max(100px, 4em, 50%); 
+}
+
+- The largest of the three values will be selected 
+- Can think of the 100px as a guard value; the width will never be set to less than 100px
+
+clamp():
+
+- Helps make elements fluid and responsive
+- Takes 3 values: 
+clamp(smallest value, the ideal value, the largest value);
+- clamp() uses these values to set the smallest, ideal or largest value of an element
+
+#####################################################################
+
+Knowledge Check: 
+
+What are four CSS math functions?
+- calc(), min(), max() and clamp()
+
+How do we use CSS math functions in our CSS?
+- We assign the value returned from the CSS function to a CSS property such as width, font-size etc.
+
+How can CSS functions help make websites and applications more responsive?
+- min() and max() allow us to set maximum and minimum boundaries (respectively) for elements 
+- clamp() clamps a value between an upper and lower bound, based on a provided ideal value

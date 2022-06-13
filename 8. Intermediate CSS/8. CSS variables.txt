@@ -1,0 +1,105 @@
+CSS variables: 
+
+- Allow us to reference a value many times throughout a file
+- We don't have to update every single instance of a specific value, just the custom variable itself 
+- Can also redefine CSS variables under different contexts, which is great for creating themes e.g dark and light themes
+
+Syntax: 
+
+- We use a double hyphen followed by a hyphen-seperated property name e.g 
+
+.error-modal{
+    --color-error-text: red; 
+    --modal-border: 1px solid black;
+}
+
+- To access the custom variable, we use the var() function with the custom variable inside the parenthesis e.g 
+
+.modal{ 
+    color: var(--color-error-text);
+}
+
+Fallback Values: 
+
+- Actually the var() function accepts two parameters
+    - First is the custom variables 
+    - Second is an optional fallback value which is used if the first is undefined or invalid
+- We can even provide a var() function as the fallback value e.g:
+
+background-color: var(--undeclared-variable, var(--color-error-text, yellow));
+
+Scope: 
+
+- The scope of a custom property is determined by the CSS selector
+    - The scope includes the selector as well as any descendants of that selector 
+
+e.g: 
+
+<div class='cool-div'>
+    <p class='cool-para'>Cool para</p>
+</div>
+
+<p class='lame-para'>Lame para</p>
+
+.cool-div{
+    --main-bg: red; 
+}
+
+.cool-para{
+    background-color: var(--main-bg); //this works
+}
+
+.lame-para{
+      background-color: var(--main-bg); //this does not work
+}
+
+- We can define CSS variables using the :root selector to ensure the variables are available for all elements  
+
+Creating Themes with Custom CSS Variables: 
+
+- We can take the idea of using the :root selector further by adding a class attribute to our html element 
+    - We then create custom variables for a dark scope and a light scope: 
+
+:root.dark{
+
+}
+
+:root.light{
+
+}
+
+- We can change the class on the html element using JS based on when a user clicks on some button
+- But what if it can be even easier? 
+    - We can use the user's theme settings from their OS or user-agent 
+    - This can also be done as part of a media query!
+
+:root {
+  //light CSS stylings
+}
+
+@media (prefers-color-scheme: dark){
+    :root{
+        //dark CSS stylings 
+    }
+}
+
+- These CSS rules default the styling to light and if the user has a dark theme set in their preferences, we use the dark styles
+
+#####################################################################
+
+Knowledge Check: 
+
+How would you declare a custom property with a name of text-color?
+- --text-color: 
+
+How would you access a custom property with a name of background-color?
+- var(--background-color); 
+
+Where would you declare a custom property to have its scope be global and accessible by all other selectors?
+- On the :root selector
+
+Where would you declare a custom property so that a user’s theme setting from their OS or browser was taken into account?
+- Using the prefers-color-scheme media query with the following syntax: 
+
+@media (prefers-color-scheme: <dark or light>){
+}

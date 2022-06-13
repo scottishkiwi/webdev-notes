@@ -1,0 +1,52 @@
+Browser History: 
+
+- The WorldWideWeb browser was released in 1990, later renamed to Nexus to avoid confusion with the World Wide Web
+- Allowed users to view basic style sheets, read newsgroups
+- Over the next decade, Mosaic Browser was released and quickly gained popularity
+- Then the growth of the World Wide Web really exploded with the release of Opera and Netscape Navigator 
+- IE was released in 1995 and became the dominant player
+    - At one point, IE was used by 90% of all users 
+    - Netscape launched the Mozilla foundation, which develops and maintains Firefox
+- In 2003, Apple launches Safari and in 2008 Google launches Chrome
+
+Browser Compatibility: 
+
+- Different browsers use different engines to display information on the web page
+    - Chrome and Chromium utilize Blink (Chromium is OpenSource version of chrome that is also the base of Microsoft Edge and Brave browsers)
+    - Safari uses Webkit
+- These different engines can result in different behaviors between browsers 
+    - These days, most applications are designed to work smoothly in Chrome and providing as good of a performance in other browsers is secondary
+
+Browser Releases and New CSS Features: 
+
+- W3C is the authority behind developing web standards to maximize accessibility and consistency amongst the web experience 
+    - Also the authority to develop new features in CSS 
+- As the standards around the web evolve and change, browsers must provide support for these new features
+    - If the UX is impacted by the lack of support in the browsers then users may start using a different browser
+
+When is it Safe to use new features?
+
+- "Can I use" is a resource to help validate if new features are supported by the browsers
+    - Provides statistics on which browsers and platforms are supporting new technologies, and which specific version it supports 
+- Generally its good practice to wait until new features are support the most common browsers 
+
+Mobile Browsers:
+
+- Traditionally the web was desktop computer first 
+- As smartphones have been more popular, more and more users are using mobile devices as their main device for interacting with the web
+- The most populate mobile OS are Android and Apple's IOS 
+- We must consider mobile design when developing applications 
+    - On iOS, Safari is technically the only supported browser (even though you can install Chrome or Firefox) 
+        - For web applications to work for Apple users, we have to ensure our app works with WebKit 
+    - Lots of different screen sizes, too many to test.
+        - Can use the DevTools to emulate devices and different screen sizes 
+
+Default Styles: 
+
+- Some elements already have style applied to them from the default styles that come with a browser
+- No guarantee that the browsers will act in the same way and inconsistencies do exist
+- In many cases we will overwriting most of this default styling to make our site look how we envision inconsistencies
+- Many developers will have a default CSS reset file that undoes browser defaults, or maybe even styles certain elements in a consistent way across all browsers 
+    - e.g Normalize.css 
+
+

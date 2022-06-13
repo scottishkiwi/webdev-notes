@@ -1,0 +1,22 @@
+Frameworks: 
+
+- Bootstrap and Tailwind do the heavy lifting of packaging up commonly used CSS code
+- Ultimately just a bundle of CSS that can be used and access using the classes defined by the framework
+    - e.g many frameworks will provide a class called .btn that will add button styles without us having to write any CSS 
+- In general, to use a framework we just need to know how it expects us to lay out a site, and which classes to use to apply the styles 
+
+Disadvantages of Frameworks: 
+
+- Results in many similar looking websites due to similar use of frameworks
+- Can also allow developers to skip learning CSS properly 
+    - Overriding a frameworks styling or debugging style issues can become hard
+    - It is important to know whats going on under the hood
+- Tricky to remove a CSS framework from a project once its in place without a large amount of work 
+
+Preprocessors: 
+
+- Languages that help us write CSS more easily 
+- Reduce code repetition, provide all sorts of time-saving and code-saving features 
+    - Some preprocessors allow us to write loops, join multiple stylesheets and nest CSS selectors 
+- When we run the processor, it takes the code with extra functionality (nesting, mixins and variables) and outputs vanilla CSS that we can use in the browser
+- Classic preprocessors are SASS and LESS 
