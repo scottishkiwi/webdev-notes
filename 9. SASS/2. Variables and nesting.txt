@@ -1,0 +1,66 @@
+Sass variables:
+
+- Use the $ symbol, followed by the name, to declare a variable e.g
+
+$myFont: Helvetica, sans-serif; 
+$myColor: red; 
+
+body{
+    font-family: $myFont; 
+    color: $myColor; 
+}
+
+- When the Sass file is transpiled, it takes the variables and outputs normal CSS with the variable values placed in the CSS 
+
+Scope: 
+
+- Sass variables are only available at the level of nesting where they are defined e.g 
+
+$MyColor: red; 
+
+h1{
+    $myColor: green; 
+    color: $myColor; //green
+}
+p{
+    color: $myColor; //red
+}
+
+Sass !global:
+
+- The default behaviur for scope can be overridden with the !global switch
+    - !global indicates that a variable is global so it is accessible on all levels 
+- Usually global variables are defined outside of any rules, as it makes no sense for them to be in a rule
+    - It is wise to define all global variables in its own file, named _globals.scss and then include the file with the @include keyword 
+
+#####################################################################
+
+Sass nested rules: 
+
+- Sass lets you nest CSS selectors in the same as HTML e.g 
+
+nav{
+    ul{
+        margin: 0; 
+    }
+    li{
+        display: inline-block; 
+    }
+    .main{
+        text-color: red; 
+    }
+}
+
+- This is cleaner and easier to read than normal CSS
+
+Shortcut using &:
+
+nav{
+    &:hover{
+        background: red; 
+    }
+    &::after{
+        content: 'hello';
+    }
+}
+

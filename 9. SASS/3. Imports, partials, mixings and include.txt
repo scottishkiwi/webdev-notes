@@ -1,0 +1,68 @@
+@imports: 
+
+- Sass supports with @import directive which allows us to include content on one file in another 
+
+@import "variables";
+@import "colors";
+
+- We don't need to specify the file extension, Sass automatically assumes we mean .scss 
+
+Sass Partials: 
+
+- If we start a filename with an underscore, Sass will not transpile it
+    - These files are called partials 
+- This means we can import a sass file, that is not transpiled, so we can utilize the functions or variables that are coming from that file 
+
+#####################################################################
+
+@mixin: 
+
+- Allows us to create CSS code that can be reused throughout a code base e.g
+
+@mixin mixin-name{
+    property: value; 
+    property: value; 
+}
+
+Using a mixin: 
+
+- We use the @include directive to use the mixin: 
+
+selector{ 
+    @include mixin-name; 
+}
+
+- Mixins can also include other mixins
+
+Passing variables to a Mixin: 
+
+- Mixins can accept arguments e.g:
+
+@mixin bordered($color, $width){
+    border: $width solid $color; 
+}
+
+.myArticle{
+    @include bordered(blue, 1px); 
+}
+
+- We can also setup default values for mixins: 
+
+@mixin bordered($color: blue, $width: 1px){
+    border: $width solid $color; 
+}
+
+Using a mixin for Vendor Prefixes: 
+
+- A nice way to handle repeated code for browser specific properties
+
+@mixin transform($property) {
+    -webkit-transform: $property;
+    -ms-transform: $property;
+    transform: $property;
+}
+
+.myBox {
+  @include transform(rotate(20deg));
+}
+

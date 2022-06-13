@@ -1,0 +1,17 @@
+What is Sass?
+
+- Syntactically Awesome Style stylesheets
+- CSS preprocessor
+- Completely compatible with all versions of CSS
+- Uses the .scss file extension
+
+Why use Sass?
+
+- Offers features that do not exist in CSS: 
+    - variables, nested rules, mixins, imports, inheritance and built-in functions
+
+How does Sass work?
+
+- A browser does not understand Sass code
+- A Sass preprocessor is needed to convert Sass to standard CSS
+    - Called transpiling 

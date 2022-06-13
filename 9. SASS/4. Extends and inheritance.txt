@@ -1,0 +1,25 @@
+Sass @extend directive: 
+
+- Lets you share a set of CSS properties from one selector to another 
+- Useful if you have almost identically styled elements that have only small differences 
+
+e.g we create a style for buttons, then we create one particular style for the report button and one for the submit button 
+
+.button-basic  {
+  border: none;
+  padding: 15px 30px;
+}
+
+.button-report  {
+  @extend .button-basic;
+  background-color: red;
+}
+
+.button-submit  {
+  @extend .button-basic;
+  background-color: green;
+  color: white;
+}
+
+- Also means we don't have to specify multiple classes on an element in HTML, we can just class="button-report" and get the default button styles as well
+- Keeps code DRY 
