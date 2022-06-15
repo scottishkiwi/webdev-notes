@@ -1,0 +1,106 @@
+Setting up a Grid: 
+
+Grid container: 
+
+display: grid; 
+or 
+display: inline-grid; (container does not stretch to take up space the way a block-level box would)
+
+- Grid container contains the whole grid
+- Each child element becomes a grid item
+- As with flexbox, grid items can also be grid containers 
+
+Columns and Rows: 
+
+- We can define the grid track (the space between lines on a grid)
+    - Specifically, a column track gives us a space between our columns and row track gives us space between our rows 
+- grid-template-columns and grid-template-rows make defining columns and rows easy:
+
+.container{
+    display: grid; 
+    grid-template-columns: 50px 50px; 
+    grid-template-rows: 50px 50px; 
+}
+
+- This defines two columns and two rows to place four grid items 
+- If we wanted to add more columns or rows to our grid, we can simply define these values to make another track:
+
+.container {
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-template-rows: 50px 50px;
+}
+
+Shorthand: 
+
+- We can replace the grid-template-* properties above with the shorthand grid-template
+    - We use a slash in between the rows and the columns definitions 
+
+.container {
+    display: grid;
+    grid-template: 50px 50px / 50px 50px 50px;
+}
+
+- Columns and rows can have different values e.g first column is 5x wider than the others: 
+
+.container {
+    display: grid;
+    grid-template: 50px 50px / 250px 50px 50px;
+}
+
+Explicit vs Implicit Grid: 
+
+- If we have a simple 2x2 layout for four grid items, what happens when we add a fifth item?
+    - The fifth item is placed on the grid, on a third row that is not defined
+        - This is because of the implicit grid concept 
+- When we use the grid-template* properties, we explicitly define grid tracks to lay out our items 
+    - When the grid needs more tracks for extra content, it will implicitly define new tracks
+
+NOTE: the size value from the grid-template* properties is not carried over into these implicit grid tracks, but we can define value for these tracks: 
+
+- grid-auto-rows and grid-auto-columns ensure any new tracks the implicit grid makes are set at values that we have defined:
+
+.container {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 50px 50px;
+    grid-auto-rows: 50px;
+}
+
+Gap: 
+
+- The gap between rows and columns is known as the gutter or alley 
+- Set separately for rows and columns using the column-gap and row-gap properties, or we can set both using the shorthand gap 
+
+.container {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 50px 50px;
+    column-gap: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 50px 50px;
+    grid-template-rows: 50px 50px;
+    gap: 10px;
+}
+
+#####################################################################
+
+Knowledge Check: 
+
+How does an HTML element become a grid item?
+- Its parent element needs to have the display: grid; property
+
+What is the space between lines on the grid?
+- The grid track
+
+How do you set gutters (also known as alleys) in the grid?
+- Using the row-gap or column-gap (or shorthand gap) property on the grid container 
+
+Describe what happens when you have more content than defined tracks.
+- The extra content is added to the grid implicitly based on the current grid rules 
+
+How could you change the size for those undefined tracks?
+- Using grid-auto-rows or grid-auto-column properties 

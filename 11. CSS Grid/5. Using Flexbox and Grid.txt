@@ -1,0 +1,14 @@
+Content First vs Layout First Design: 
+
+- The different use of Grid and Flexbox depends on whether the design originates with the contents, or from the overall layout
+    - If starting with the content (Content-first design) = Flexbox, easy to manipulate code in one dimensions, along either rows or columns
+    - If starting with the layout (layout-first design) and need explicit placement of elements in two dimensions = Grid. 
+    
+Combining Flexbox and Grid: 
+
+- If you have one-dimensional content, Flexbox can make it easier to control how that content is position in a Flex container 
+- If we want to accurately place content on a complete layout in two dimensions, Grid can be simpler to use 
+
+- We can also have the overall layout be a grid, but the grid items act as flex parents 
+    - The grid items can be moved around using the precist two dimensional placements of Grid
+    - The content inside the grid items can be easily moved around using Flex. 

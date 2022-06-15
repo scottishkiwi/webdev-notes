@@ -1,0 +1,31 @@
+A look back at Flex: 
+
+- We position items along two axes (main and cross)
+- We set their alignment using either justify-content (main) or align-items (cross)
+- We set whether we want the flex items to grow, shrink or change their size
+
+- For one dimensional layouts, Flex offers a convenient tool without having to rely on floats or painful CSS hacks to align the items properly 
+- For two dimensional layouts, we found that flex-wrap allowed us to wrap our flex items onto the next line
+    - This isn't always easy and is hard to scale up
+    - Introducing CSS Grid
+
+CSS Grid: 
+
+- Inspired by use of grid-like layouts in other forms of media (newspapers, magazines)
+- Often praised for easy placements of items in a two dimensional layout 
+    - But can be used for one dimensional layouts as well
+
+Similarities between Flex and Grid: 
+
+- Both use parent containers with child items
+- Similar property names for alignment and positioning
+
+#####################################################################
+
+Knowledge Check: 
+
+How can you use Flex to make a two-dimensional layout?
+- flex-wrap property
+
+Why was CSS Grid introduced?
+- As a tool to build layouts based on a grid-like layouts in other forms of media
